@@ -1,16 +1,8 @@
-%!TeX program = lualatex
+%!TeX TS-program = lualatex
 %!TeX spellcheck = fr
 
 \documentclass[a4paper, 11pt]{article}
 \usepackage[margin=2cm]{geometry}
-
-% ---------------------- À FAIRE ----------------------
-
-% écrire le README et envoyer à Brice Canvel
-
-% publier sur github
-
-% -----------------------------------------------------
 
 \input{preamble-quadratique.tex}
 
@@ -64,22 +56,4 @@ Réponses \\{\tiny\sffamily (générées le \DTMtoday\ à \DTMcurrenttime s)}\\~
 
 \end{document}
 
-%% NON COMPLET:
 
-%\par Petite fonction bonus : un vérifie-étapes dans la formule de Viète. 
-%% non terminé
-%
-%% il faut préciser a, b, c dans le code CAS
-%
-%\begin{align}
-%	\begin{CAS}
-	%		vars('x')
-	%		a = 1
-	%		b = 2 
-	%		c = 3
-	%		f = a*x^2 + b*x + c
-	%		d = sqrt(b^2 - 4 * a * c)
-	%	\end{CAS}
-%	&\text{} & \print{f}&=0 \\
-%	&\text{calcul discriminant}  & \Delta &= \print{d}
-%\end{align}

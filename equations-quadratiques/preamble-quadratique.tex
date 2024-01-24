@@ -1,0 +1,151 @@
+%!TeX root = main-quadratique.tex
+
+
+% --- PRÉAMBULE  --- 
+
+% langue et police:
+\usepackage[quiet]{fontspec}
+\usepackage{polyglossia} \setmainlanguage[variant=swiss]{french}
+
+% calculs internes:
+\usepackage{luacas}
+%\usepackage[pl,import]{penlight} % désuet
+
+% maths:
+\usepackage{amsmath} 
+\usepackage{amssymb}
+\usepackage[ % choix esthétique, facultatif
+	warnings-off={mathtools-colon,mathtools-overbracket},
+	math-style=ISO,
+	]{unicode-math} 
+\usepackage[ % à régler selon préférences / change as preferred
+	% utilisé ici pour formatter les nombres à virgule avec \num{}
+	% used here to format decimal numbers via \num{}
+	locale = FR,
+	round-precision = 3,
+	round-mode = figures,
+	round-pad = false,
+	%zero-decimal-as-symbol = true, % choix personnel / personal choice
+	]{siunitx} 
+	% vvvvvvvvvvvvvvvvvvvvv
+%	\newcommand{\num}[1]{#1}
+%% 	^ à décommenter si vous voulez vous débarasser de ‹siunitx›
+%% 	^ uncomment if you want to get rid of ‹siunitx›
+
+% choix esthétiques, facultatifs:
+\let\oldemptyset\emptyset
+\let\emptyset\varnothing
+
+% permettent mise en page:
+\usepackage{multicol}
+\usepackage{pgffor}
+
+% date et heure
+\usepackage[ % permet les horodatages (timestamps)
+	timesep=., 
+	showzone=false, 
+	hourminsep=h, 
+	minsecsep=m
+	]{datetime2}
+
+
+% ---- ANSWER-PRINTING STYLE FROM https://tex.stackexchange.com/a/15354 ----
+
+% Define answer environment 
+
+\newbox\allanswers
+\setbox\allanswers=\vbox{}
+
+\newenvironment{customanswer}
+{\global\setbox\allanswers=\vbox\bgroup
+	\unvbox\allanswers
+	\vspace{-4pt}
+}
+{\bigbreak\egroup}
+
+\newcommand{\showallanswers}{\par\unvbox\allanswers}
+
+% Define question environment
+
+\newbox\allquestions
+\setbox\allquestions=\vbox{}
+
+\newenvironment{customquestion}
+{\global\setbox\allquestions=\vbox\bgroup
+	\unvbox\allquestions
+}
+{\bigbreak\egroup}
+
+\newcommand{\showallquestions}{\par\unvbox\allquestions}
+
+% --------------------------------------------------------------------------
+
+
+
+%% ---------- PROVIDE \timestamp COMMAND -------------
+% -- from https://flaterco.com/util/timestamp.sty --
+
+\makeatletter
+
+\newcount\@DT@modctr
+\newcount\@dtctr
+
+\def\@modulo#1#2{%
+	\@DT@modctr=#1\relax
+	\divide \@DT@modctr by #2\relax
+	\multiply \@DT@modctr by #2\relax
+	\advance #1 by -\@DT@modctr}
+
+\newcommand{\xxivtime}{%
+	\@dtctr=\time%
+	\divide\@dtctr by 60
+	\ifnum\@dtctr<10 0\fi\the\@dtctr.%
+	\@dtctr=\time%
+	\@modulo{\@dtctr}{60}%
+	\ifnum\@dtctr<10 0\fi\the\@dtctr%
+}
+
+\newcommand{\timestamp}{\the\year-%
+	\ifnum\month<10 0\fi\the\month-%
+	\ifnum\day<10 0\fi\the\day\ \xxivtime}
+
+\makeatother
+
+% -----------------------------------------------------
+
+
+
+% ---------------- ACCÈS AU CODE LUA: -----------------
+
+% Aide-mémoire Lua: https://devhints.io/lua
+
+% Activer les fonctions dans le code:
+% Load lua code:
+\directlua{codeA = require "codeQuadratique"} 
+
+% Convertir fonctions de code.lua en commandes LaTeX:
+% Extract useful functions as LaTeX commands:
+
+% Pour le format par défaut / for default style:
+\newcommand{\afullroutine}[1]{\directlua{codeA.fullRoutine(#1)}}
+
+% Pour imprimer question immédiatement suivie de réponse:
+% To print question immediately followed by answer:
+\newcommand{\aprintqna}{\directlua{codeA.printQnA()}}
+
+% Pour librement produire question, et séparément la réponse
+% To freely produce question, and separately answer 
+\newcommand{\amakequestion}{% 
+	% MUST BE INSERTED IN MATHMODE: \(\amakequestion\)
+		\directlua{%
+			polynomialcoeffs = codeA.polynomial()
+			eqn = codeA.printEquation(table.unpack(polynomialcoeffs,1,3))
+			tex.print(eqn)
+		}
+	}
+\newcommand{\amakeanswer}{%
+	% IN TEXTMODE
+		\directlua{%
+			tex.print(codeA.answer(table.unpack(polynomialcoeffs)))
+		}
+	}

@@ -1,1 +1,1 @@
-# laboratoire-didactique
+# Laboratoire didactique

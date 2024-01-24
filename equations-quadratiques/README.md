@@ -5,7 +5,7 @@
 
 Le présent outil est conçu pour permettre à des élèves d'entraîner la résolution d'équations de deuxième degré $a x^2 + b x + c = 0$ en utilisant la méthode la plus appropriée, en reconnaîssant les suivants cas :
 
-- quand $b = 0$, on peut résoudre par réarrangement $x^2 = - c/a$ ;
+- quand $b = 0$, on peut résoudre par réarrangement $x^2 = - \frac c a$ ;
 
 - quand $c = 0$, on peut factoriser $ax$ pour avoir $a x (\frac b a \cdot x + \frac c a) = 0$ ;
 

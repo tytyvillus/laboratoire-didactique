@@ -8,17 +8,17 @@ Il est destiné à être utilisé pour ...
 
 It is meant to be used for ...
 
-## Installation
-
-Fonctionne avec n'importe quelle distribution commune de LaTeX, par exemple TeXLive ou MikTeX, **à condition que le fichier soit compilé avec le moteur LuaLaTeX**.
-***
-Works with any standard LaTeX distribution, *e.g.* TeXLive or MikTeX, **as long as the file is compiled with the LuaLaTeX engine**.
-
 ## Utilisation / Use
 
 Télécharger un des `.zip`, le décompresser et compiler le fichier `main-*.tex` avec LuaLaTeX.
 ***
 Download, unzip and compile the `main-*.tex` file using LuaLaTeX.
+
+## Installation
+
+Fonctionne avec n'importe quelle distribution commune de LaTeX, par exemple TeXLive ou MikTeX, **à condition que le fichier soit compilé avec le moteur LuaLaTeX**.
+***
+Works with any standard LaTeX distribution, *e.g.* TeXLive or MikTeX, **as long as the file is compiled with the LuaLaTeX engine**.
 
 ## Contributions
 

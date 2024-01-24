@@ -46,8 +46,8 @@ local function easy_factor(a, x1, x2)
 
 end
 
-local whether_from_factored_form = function () 
-    -- randomly decides whether choose solutions first (return true)
+local function whether_from_factored_form () 
+    -- randomly decides whether choose [integer] solutions first (return true)
     -- or generate a, b, c at random (return false)
     if math.random(10) <= 7 --> weightings, feel free to change
         then return true 
@@ -55,7 +55,7 @@ local whether_from_factored_form = function ()
     end 
 end
 
-local enforce_perfect_square = function ()
+local function enforce_perfect_square ()
     -- randomly chooses to enforce a perfect-square polynomial (return true)
     -- or just leave things alone (return false)
     if math.random(10) == 1 --> weightings, feel free to change

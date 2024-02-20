@@ -1,6 +1,16 @@
-#  « Je ne gère pas LaTeX » : démarrage rapide en ligne 
+#  « Je ne gère pas l'informatique » : version en ligne
 
-`à venir...`
+Si vous voulez rapidement accéder au projet sans trop avoir à mettre les mains à la pâte, vous pouvez accéder à une [version en ligne](https://www.overleaf.com/project/65d47b18fce7d2bf0e2338eb) `ATTENTION LIEN NON À JOUR`, il faut en créer une copie. Pour cela, le plus simple est de vous créer un compte sur [Overleaf](https://www.overleaf.com/), d’ouvrir le lien ci-dessus puis de créer une copie du projet en cliquant sur le bouton « copie » :
+
+![Bouton « copie » dans Overleaf, mis en évidence avec une grande flèche verte.](./copier-d-overleaf-oq.png)
+
+Vous pouvez aussi télécharger les fichiers et les compiler avec **une version à jour** de LaTeX sur votre ordinateur en choisissant LuaLaTeX :
+
+![Bouton « téléchargement » dans Overleaf, mis en évidence avec une grande flèche verte.](./telecharger-d-overleaf-oq.png)
+
+Pour une présentation plus complète, vous êtes invité·e à lire le reste de ce document, notamment la [section sur l'utilisation de l'outil](#utilisation-de-l'outil).
+
+***
 
 # Présentation de l'outil : résoudre efficacement une équation de second degré
 
@@ -36,11 +46,15 @@ L'outil se présente comme quatre fichiers dans une archive `.zip` : la README
 
 ## Utilisation de l'outil
 
+### Démarrage rapide
+
 L'outil est conçue pour que, après avoir décompressé l'archive `.zip`, il suffise d'ouvrir le fichier `main-*.pdf` dans votre éditeur TeX favori et de le compiler pour obtenir une fiche complète et utilisable.  C'est un outil « prêt à l'emploi » (« *plug and play* »). 
 
 Il vous faut seulement vous assurer que vous ayez une distribution LaTeX à jour, et **compiler le document avec le moteur LuaLaTeX** (et non pdfLaTeX ou XeLaTeX). 
 
 ***
+
+### Modifier le document : mains à la pâte
 
 Le document `main-*.tex` consiste en une série de 24 exercices, mis en page préalablement à travers les commandes
 ```tex
@@ -69,6 +83,8 @@ Si vous le souhaitez, vous pouvez modifier quelques réglages dans l'algorithme 
 - fixer, dans le cas de solutions entières, la proportion avec laquelle un carré parfait sera imposée, avec la fonction booléenne `enforce_perfect_square()`.
 
 ***
+
+### Traitement par lot
 
 Pour produire plusieurs feuilles différentes d'un coup, afin de pouvoir par exemple les distribuer individuellement à une classe de 20 élèves, nous n'avons malheureusement pas trouvé d'autre solution que d'appeler plusieurs fois le moteur LuaLaTeX depuis un programme externe. Par exemple, sur Linux, vous pouvez taper le code suivant dans Bash depuis le dossier contenant `main-*.tex` :
 

@@ -1,4 +1,4 @@
-#  « Je ne gère pas l'informatique » : version en ligne
+##  « Je ne gère pas l'informatique » : version en ligne
 
 Si vous voulez rapidement accéder au projet sans trop avoir à mettre les mains à la pâte, vous pouvez accéder à une [version en ligne](https://www.overleaf.com/project/65d47b18fce7d2bf0e2338eb) `ATTENTION LIEN NON À JOUR`, il faut en créer une copie. Pour cela, le plus simple est de vous créer un compte sur [Overleaf](https://www.overleaf.com/), d’ouvrir le lien ci-dessus puis de créer une copie du projet en cliquant sur le bouton « copie » :
 
@@ -12,7 +12,9 @@ Pour une présentation plus complète, vous êtes invité·e à lire le reste de
 
 ***
 
-# Présentation de l'outil : résoudre efficacement une équation de second degré
+# Résoudre efficacement une équation de second degré
+
+## Présentation 
 
 Le présent outil est conçu pour permettre à des élèves d'entraîner la résolution d'équations de deuxième degré $a x^2 + b x + c = 0$ en utilisant la méthode la plus appropriée, en reconnaîssant les suivants cas :
 

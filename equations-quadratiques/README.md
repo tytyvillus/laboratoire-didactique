@@ -2,13 +2,13 @@
 
 Si vous voulez rapidement accéder au projet sans trop avoir à mettre les mains à la pâte, vous pouvez accéder à une [version en ligne](https://www.overleaf.com/project/65d47b18fce7d2bf0e2338eb) `ATTENTION LIEN NON À JOUR`, il faut en créer une copie. Pour cela, le plus simple est de vous créer un compte sur [Overleaf](https://www.overleaf.com/), d’ouvrir le lien ci-dessus puis de créer une copie du projet en cliquant sur le bouton « copie » :
 
-![Bouton « copie » dans Overleaf, mis en évidence avec une grande flèche verte.](./copier-d-overleaf-oq.png)
+![Bouton « copie » dans Overleaf, mis en évidence avec une grande flèche verte.](../images/copier-d-overleaf-oq.png)
 
 Vous pouvez aussi télécharger les fichiers et les compiler avec **une version à jour** de LaTeX sur votre ordinateur en choisissant LuaLaTeX :
 
-![Bouton « téléchargement » dans Overleaf, mis en évidence avec une grande flèche verte.](./telecharger-d-overleaf-oq.png)
+![Bouton « téléchargement » dans Overleaf, mis en évidence avec une grande flèche verte.](../images/telecharger-d-overleaf-oq.png)
 
-Pour une présentation plus complète, vous êtes invité·e à lire le reste de ce document, notamment la [section sur l'utilisation de l'outil](#utilisation-de-l'outil).
+Pour une présentation plus complète, vous êtes invité·e à lire le reste de ce document, notamment la [section sur l'utilisation de l'outil](#utilisation-de-loutil).
 
 ***
 

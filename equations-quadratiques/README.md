@@ -1,4 +1,8 @@
-# Outil : résoudre efficacement une équation de second degré
+#  « Je ne gère pas LaTeX » : démarrage rapide en ligne 
+
+`à venir...`
+
+# Présentation de l'outil : résoudre efficacement une équation de second degré
 
 Le présent outil est conçu pour permettre à des élèves d'entraîner la résolution d'équations de deuxième degré $a x^2 + b x + c = 0$ en utilisant la méthode la plus appropriée, en reconnaîssant les suivants cas :
 

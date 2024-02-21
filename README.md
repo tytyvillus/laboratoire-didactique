@@ -1,5 +1,11 @@
 For English, scroll to [bottom](#the-laboratoire-didactique).
 
+# Laboratoire didactique
+
+Celui-ci est un dépôt contenant le travail de ... pour le Laboratoire didactique ...
+
+Il est destiné à être utilisé pour ...
+
 ## Liens rapides
 
 Selon le projet qui vous interesse, vous pouvez lire directement la `README` pertinente :
@@ -7,13 +13,6 @@ Selon le projet qui vous interesse, vous pouvez lire directement la `README` per
 - [Résolution efficace d'équations du second degré](./equations-quadratiques/README.md)
 
 - [Résolution efficace de systèmes d'équations à deux inconnues]()
-
-
-# Laboratoire didactique
-
-Celui-ci est un dépôt contenant le travail de ... pour le Laboratoire didactique ...
-
-Il est destiné à être utilisé pour ...
 
 ## Utilisation
 

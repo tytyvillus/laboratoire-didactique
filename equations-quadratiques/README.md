@@ -58,7 +58,7 @@ Il vous faut seulement vous assurer que vous ayez une distribution LaTeX à jour
 
 ### Modifier le document : mains à la pâte
 
-Le document `main-*.tex` consiste en une série de 24 exercices, mis en page préalablement à travers les commandes
+Le document `main-*.tex` consiste en une série de 24 exercices, mis en page algorithmiquement avec les commandes
 ```tex
 \foreach \n in {1,2,...,24}{\afullroutine{\n}}
 ```
@@ -70,7 +70,7 @@ Quelques commandes additionnelles sont également proposées pour une mise en pa
 
 - `\amakequestion` : à utiliser en mode mathématique (*mathmode*), génère une équation à résoudre.
 
-- `\amakeanswer` : à utiliser en mode texte, donne la solution recommandée à la dernière équation générée par 
+- `\amakeanswer` : à utiliser en mode texte, donne la solution recommandée à la dernière équation générée par `\amakequestion`
 
 Les deux dernières sont plus modulables, pouvant être utilisées pour placer l'équation et la réponse plus librement, par exemple au sein d'une plus grande feuille de travail avec d'autres types de questions.
 
@@ -105,4 +105,4 @@ Cet outil est distribué avec la licence [GPL-3.0-or-later](https://www.gnu.org/
 
 - Alexandros Rispo Constantinou
 
-Une [page GitHub pour cet outil](https://github.com/tytyvillus/laboratoire-didactique) sera bientôt aussi disponible.
+Une [page GitHub pour cet outil](https://github.com/tytyvillus/laboratoire-didactique) est également disponible.

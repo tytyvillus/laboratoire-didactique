@@ -1,4 +1,6 @@
-Liens rapides : selon le projet qui vous interesse, vous pouvez lire directement la `README` pertinente :
+#### Liens rapides
+
+Selon le projet qui vous interesse, vous pouvez lire directement la `README` pertinente :
 
 - [Résolution efficace d'équations du second degré](./equations-quadratiques/README.md)
 - [Résolution efficace de systèmes d'équations à deux inconnues]()

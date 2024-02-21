@@ -1,3 +1,8 @@
+Liens rapides : selon le projet qui vous interesse, vous pouvez lire directement la `README` pertinente :
+
+- [Résolution efficace d'équations du second degré](./equations-quadratiques/README.md)
+- [Résolution efficace de systèmes d'équations à deux inconnues]()
+
 # Laboratoire didactique
 
 Celui-ci est un dépôt contenant le travail de ... pour le Laboratoire didactique ...

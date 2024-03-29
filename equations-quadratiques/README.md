@@ -76,7 +76,7 @@ Les deux dernières sont plus modulables, pouvant être utilisées pour placer l
 
 Si vous le souhaitez, vous pouvez modifier quelques réglages dans l'algorithme qui décide des polynômes et des méthodes pour les résoudre.  Ces réglages sont tous dans la section intitulée `(EDITABLE) PREAMBLE` du fichier `.lua`. En particulier, vous avez accès aux fonctionnalités suivantes :
 
-- choisir la graine pour la générations de nombres pseudoaléatoires, en modifiant le paramètre de la fonction `math.randomseed()` — *si vous voulez garder vos feuilles d'une fois à une autre, il vous faut fixer ce paramètre **avant** la compilation* ;
+- choisir la graine pour la générations de nombres pseudoaléatoires, en modifiant le paramètre de la fonction `math.randomseed()` ;
 
 - décider quels polynômes sont estimés faciles à factoriser par trinôme, en modifiant la fonction booléenne `easy_factor()` ;
 

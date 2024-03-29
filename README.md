@@ -26,7 +26,7 @@ Fonctionne avec n'importe quelle distribution commune de LaTeX **à jour**, par 
 
 - Vous pouvez demander à ce que des ressources soient ajoutées si vous le souhaitez.
 
-- L'hébergement de ces ressources sur votre site web est autorisé à condition que vous respectiez la licence.
+- L'hébergement de ces ressources sur votre site web est autorisé à condition que vous respectiez la licence.  Il serait courtois d'inclure également un lien vers cette page.
 
 ***
 
@@ -56,7 +56,7 @@ Works with any standard **up-to-date** LaTeX distribution, *e.g.* TeXLive or Mik
 
 - You can ask for resources to be added if you like.
 
-- Hosting these on your web site is allowed as long as you follow the licence.
+- Hosting these on your web site is allowed as long as you follow the licence. Bonus points if you link back to this repository.
 
 
 # Licence

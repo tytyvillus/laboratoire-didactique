@@ -14,7 +14,7 @@
 --> set manually if you want a reproducible sheet:
 math.randomseed(os.time()) -- e.g. 2 or os.time()
 
--- GENERAL PARAMETERS --> modify at will
+-- GENERAL PARAMETERS --> modify at will but at your own peril
 
 local function easy_factor(a, x1, x2)
     -- boolean test; decides whether a*x^2 + b*x + c is easy to factorise or not
@@ -200,14 +200,17 @@ local function pick_method(a, b, c, num_sols, x1, x2, rat)
     elseif num_sols ~= 0 then
         if a==0 then method = [[équation de premier degré, à résoudre algébriquement]]
         elseif b==0 then method = [[par réarrangement \(\left(\text{attention à }\pm\sqrt{\square}\right)\)]]
-        elseif c==0 then method = [[par mise en évidence de \(ax\)]]
+        elseif c==0 then method = [[par mise en évidence de ]] -- then by x or a*x, depending
+            if a==1 then method = method..[[\(x\)]]
+            else method =  method..string.format([[\(%d x\)]], a)
+            end
         elseif -- (rat == true) or -- "rat==true" commented out because should already be covered by easy_factor
             easy_factor(a, x1, x2) -- test whether easily factorised by hand
             then 
                 if num_sols == 1 then method = [[par identité remarquable (carré parfait)]] -- (x \pm x1)^2 = 0
                     else method = [[par factorisation du trinôme]]
                 end -- then, if a =/= 1, remind of necessity of bringing $a$ out the front
-                if a ~= 1 then method = [[diviser par \(a\), puis ]]..method end
+                if a ~= 1 then method = string.format([[diviser par \(%d\), puis ]], a)..method end
         else method = [[avec la formule de Viète]]
         end
 

@@ -1,3 +1,5 @@
+Le présent outil est distribué depuis son dépôt GitHub [`tytyvillus/laboratoire-didactique`](https://github.com/tytyvillus/laboratoire-didactique).
+
 ##  « Je ne gère pas l'informatique » : version en ligne
 
 Si vous voulez rapidement accéder au projet sans trop avoir à mettre les mains à la pâte, vous pouvez accéder à une [version en ligne](https://www.overleaf.com/project/65d47b18fce7d2bf0e2338eb) `ATTENTION LIEN NON À JOUR`. Il faut en créer une copie. Pour cela, le plus simple est de vous créer un compte sur [Overleaf](https://www.overleaf.com/), d’ouvrir le lien ci-dessus puis de créer une copie du projet en cliquant sur le bouton « copie » :
@@ -76,7 +78,7 @@ Les deux dernières sont plus modulables, pouvant être utilisées pour placer l
 
 Si vous le souhaitez, vous pouvez modifier quelques réglages dans l'algorithme qui décide des polynômes et des méthodes pour les résoudre.  Ces réglages sont tous dans la section intitulée `(EDITABLE) PREAMBLE` du fichier `.lua`. En particulier, vous avez accès aux fonctionnalités suivantes :
 
-- choisir la graine pour la générations de nombres pseudoaléatoires, en modifiant le paramètre de la fonction `math.randomseed()` ;
+- choisir la graine pour la générations de nombres pseudoaléatoires, en modifiant le paramètre de la fonction `math.randomseed()` — *si vous voulez garder vos feuilles d'une fois à une autre, il vous faut fixer ce paramètre **avant** la compilation* ;
 
 - décider quels polynômes sont estimés faciles à factoriser par trinôme, en modifiant la fonction booléenne `easy_factor()` ;
 

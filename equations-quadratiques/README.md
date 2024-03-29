@@ -1,8 +1,10 @@
 ##  « Je ne gère pas l'informatique » : version en ligne
 
-Si vous voulez rapidement accéder au projet sans trop avoir à mettre les mains à la pâte, vous pouvez accéder à une [version en ligne](https://www.overleaf.com/project/65d47b18fce7d2bf0e2338eb) `ATTENTION LIEN NON À JOUR`. Il faut en créer une copie. Pour cela, le plus simple est de vous créer un compte sur [Overleaf](https://www.overleaf.com/), d’ouvrir le lien ci-dessus puis de créer une copie du projet en cliquant sur le bouton « copie » :
+Si vous voulez rapidement accéder au projet sans trop avoir à mettre les mains à la pâte, vous pouvez accéder à une [version en ligne](https://www.overleaf.com/read/tsmdmkhnrzjq#7569b4). Il faut en créer une copie. Pour cela, le plus simple est de vous créer un compte sur [Overleaf](https://www.overleaf.com/), d’ouvrir le lien ci-dessus puis de créer une copie du projet en cliquant sur le bouton « copie » :
 
 ![Bouton « copie » dans Overleaf, mis en évidence avec une grande flèche verte.](../images/copier-d-overleaf-oq.png)
+
+- Assurez-vous, si le document refuse de compiler, que le compilateur soit bien sélectionné comme LuaLaTeX et non pas pdfTeX. Vous accéder à ce paramètre depuis le menu en haut à gauche d'Overleaf.
 
 Vous pouvez aussi télécharger les fichiers et les compiler avec **une version à jour** de LaTeX sur votre ordinateur en choisissant LuaLaTeX :
 

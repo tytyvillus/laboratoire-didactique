@@ -268,7 +268,7 @@ local function cas_equation (a, b, c)
         ) 
     elseif a*b ~= 0 and math.random(2) == 1 then
         -- c/a = -x(x + b/a)
-            --> n.b. b must be zero otherwise get c/a = -x(x)
+            --> n.b. b must be non-zero otherwise get c/a = -x(x)
         tex_string = string.format(
             [[
                 \begin{CAS}

@@ -73,8 +73,20 @@ local function is_one_of (value, table)
     for idx, val in ipairs(table) do
         if value == val then return true end
     end
-    return false
+    return false --> this only gets triggered if all previous checks fail
 end
+
+local function gcd (a, b)
+    if b == 0 then
+        return a
+    end
+    return gcd(b, a % b)
+end
+
+local function lcm (a, b)
+    return (a * b) / gcd(a, b)
+end 
+
 
 local function map (tbl, f)
     -- applies function to table
@@ -98,6 +110,22 @@ end
 local function approx (x, y)
     -- checks approximate equality, within 10^(-6)
     if math.abs(x-y) < 1e-6 then return true else return false end
+end
+
+local function table_concat(t1,t2)
+    for i=1,#t2 do
+        t1[#t1+1] = t2[i]
+    end
+    return t1
+end
+
+
+local function table_flatten_1 (matrix)
+  local output = {}
+  for i, list in ipairs(matrix) do
+    local ouput = table_concat(output, list)
+  end
+  return output
 end
 
 
@@ -182,14 +210,18 @@ end
 
 -- ALGORITHM PART 2: OPTIMAL METHOD DETECTOR --
 
-local function pick_method(a, b, c, num_sols, x1, x2, rat)
+local function pick_method(polynomial_info, override_method)
+    -- polynomial_info is the list a, b, c, num_sols, x1, x2, rat
+        -- override_method is an optional input, of the form {bool: overwrite method?, string: new method}
+
+    local a, b, c, num_sols, x1, x2, rat = table.unpack(polynomial_info)
     -- a, b, c are the polynomial coefficients (number type)
     -- num_sols is the number of solutions (number type, values in {0, 1, 2})
     -- x1, x2 are the solutions of the equation a x^2 + b x + c = 0 (number type)
     -- rat is a flag for which version of the generation algorithm was used (boolean type)
 
     --assert(num_sols == math.huge or (num_sols >= 0 and num_sols <= 2), -- remove if works
-    assert( is_one_of(num_sols, {0, 1, 2, math.huge}), 
+    assert( is_one_of(num_sols, {0, 1, 2, math.huge}),
         "Woah, something went wrong -- I didn't receive a sensible number of solutions.")
 
     local method = "" -- initialise string containing the answer method
@@ -199,7 +231,7 @@ local function pick_method(a, b, c, num_sols, x1, x2, rat)
 
     elseif num_sols ~= 0 then
         if a==0 then method = [[équation de premier degré, à résoudre algébriquement]]
-        elseif b==0 then method = [[par réarrangement \(\left(\text{attention à }\pm\sqrt{\square}\right)\)]]
+        elseif b==0 then method = [[résolution algébrique classique \(\left(\text{attention à }\pm\sqrt{\square}\right)\)]]
         elseif c==0 then method = [[par mise en évidence de ]] -- then by x or a*x, depending
             if a==1 then method = method..[[\(x\)]]
             else method =  method..string.format([[\(%d x\)]], a)
@@ -209,17 +241,26 @@ local function pick_method(a, b, c, num_sols, x1, x2, rat)
             then 
                 if num_sols == 1 then method = [[par identité remarquable (carré parfait)]] -- (x \pm x1)^2 = 0
                     else method = [[par factorisation du trinôme]]
-                end -- then, if a =/= 1, remind of necessity of bringing $a$ out the front
-                if a ~= 1 then method = string.format([[diviser par \(%d\), puis ]], a)..method end
-        else method = [[avec la formule de Viète]]
+                end 
+                if a ~= 1 -- then, if a =/= 1, remind of necessity of bringing $a$ out the front
+                and not (override_method and not override_method[1]) -- check whether already being told about premultiplying
+                then method = string.format([[diviser par \(%d\), puis ]], a)..method end
+        else method = [[formule de Viète]]
         end
 
     -- give instead methods when problem has no solution:
     else method = [[sans solutions]] -- initalise as no solutions, just in case
         if a==0 and b==0 and c~=0 then method = [[évidemment]]
-        elseif b==0 then method = [[somme de positifs ne fait jamais zéro]]
+        elseif b==0 then method = [[somme de nombres du même signe ne fait jamais zéro]]
         else method = [[formule de Viète / en calculant le discriminant \((\Delta)\)]]
         end 
+    end
+
+    -- override method if equation was weirdly printed
+    if override_method then --> checks whether nil
+        if override_method[1] then method = override_method[2] --> check whether need to overwrite
+        else method = override_method[2]..method --> else just prepend
+        end
     end
 
     return method
@@ -234,8 +275,15 @@ end
 
 local function cas_equation (a, b, c) 
     -- prints equation using luacas
+    -- outputs string AND (optionally!) method override
 
-    local tex_string = "" -- initialise
+    local tex_string = "" -- initialise output equation string
+
+    local override_method = nil -- initialise optional method override
+        --> this is of the form {Bool, String}, 
+        --  where Bool is whether to overwrite 
+        --  (true = overwrite, false = prepend)
+        --  and String is the method to use
 
     -- randomly choose form, then create with luacas:
     if math.random(10) > 2 then --> normal in 8/10 cases
@@ -251,8 +299,9 @@ local function cas_equation (a, b, c)
             ]], -- work out in luacas, then print
             a, b, c
         ) 
-    elseif b ~= 0 and math.random(3) == 1 then
+    elseif a*b ~= 0 and math.random(3) == 1 then
         -- x = - c/b - a/b x^2
+            --> n.b. a must be non-zero otherwise get x = -c/b
         tex_string = string.format(
             [[
                 \begin{CAS}
@@ -265,7 +314,19 @@ local function cas_equation (a, b, c)
                 x = \print{f}
             ]],
             a, b, c
-        ) 
+        )
+        if c == 0 then --> easy and obvious, so override predicted method
+            override_method = {true, string.format(
+                [[par réarrangement et mise en évidence de \(\begin{CAS} 
+                temp = (%d) / (%d) \end{CAS}\print{temp} x\)]],
+                a, b)
+            } 
+        elseif (c/b % 1) ~= 0 or (a/b % 1) ~= 0 then --> if non-integer, tell them to multiply to kill fractions
+            override_method = {false, string.format([[multiplier par %d, puis ]], 
+                math.abs(lcm(b / gcd(b, c), b / gcd(a, b)))) --> gets lcm of denominators
+            } 
+        else override_method = {false, ""} --> to kill the 'multiplier par a', without changing method
+        end
     elseif a*b ~= 0 and math.random(2) == 1 then
         -- c/a = -x(x + b/a)
             --> n.b. b must be non-zero otherwise get c/a = -x(x)
@@ -283,6 +344,13 @@ local function cas_equation (a, b, c)
             ]],
             a, b, c
         )  
+        if c == 0 then override_method = {true, [[par le principe du produit nul]]} --> easy so override
+        elseif (c/a % 1) ~= 0 or (b/a % 1) ~= 0 then --> if non-integer, tell them to multiply to kill fractions
+            override_method = {false, string.format([[multiplier par %d, puis ]], 
+                math.abs(lcm(a / gcd(a, c), a / gcd(a, b)))) --> gets lcm of denominators
+            }
+        else override_method = {false, ""} --> to kill the 'multiplier par a', without changing method
+        end
     else -- a x^2 = -b x - c
         tex_string = string.format(
             [[
@@ -300,14 +368,16 @@ local function cas_equation (a, b, c)
         ) 
     end
 
-    return tex_string
+    return tex_string, override_method
 end
 
 -- PRINT LUALATEX-FORMATTED ANSWER --
 
-local function cas_sol_set (a, b, c, num_sols, x1, x2, rat)
+local function cas_sol_set (polynomial_info)
     -- gets luacas to calculate and simplify solutions 
     -- outputs string to tex.print in math environment
+
+    local a, b, c, num_sols, x1, x2, rat = table.unpack(polynomial_info)
 
     local S -- initialise output string
 
@@ -356,9 +426,11 @@ local function cas_sol_set (a, b, c, num_sols, x1, x2, rat)
     return S
 end
 
-local function num_sol_set (a, b, c, num_sols, x1, x2, rat)
+local function num_sol_set (polynomial_info)
     -- create numerical solution set as string
     -- CURRENTLY UNDER DEBUGGING
+
+    local a, b, c, num_sols, x1, x2, rat = table.unpack(polynomial_info)
 
     local sol_set_list = {} -- initialise solution set
     local S = "" -- initialise output string
@@ -382,13 +454,17 @@ local function num_sol_set (a, b, c, num_sols, x1, x2, rat)
     return S
 end
 
-local function answer_line (a, b, c, num_sols, x1, x2, rat)
+local function answer_line (polynomial_info, --[[optional]]override_method)
     -- print the answer in the form "par factorisation, $S = \{1; 2\}$" :
+
+    local a, b, c, num_sols, x1, x2, rat = table.unpack(polynomial_info)
+
+    assert(not override_method or type(override_method) == "table", "override_method is not a table...")
 
     local output_string = string.format(
         [[{%s}, \(S = %s\)]],
-        pick_method(a, b, c, num_sols, x1, x2, rat),
-        cas_sol_set(a, b, c, num_sols, x1, x2, rat)
+        pick_method(polynomial_info, override_method),
+        cas_sol_set(polynomial_info)
     )
     
     -- if solutions aren't integers, then also give numerical values
@@ -397,7 +473,7 @@ local function answer_line (a, b, c, num_sols, x1, x2, rat)
         then 
             output_string = output_string..string.format(
                 [[\( \approx %s \)]],
-                num_sol_set(a, b, c, num_sols, x1, x2, rat) -- nb: fn only actually uses x1, x2
+                num_sol_set(polynomial_info) -- nb: fn only actually uses x1, x2
             ) 
         --> formats and appends numerical solutions x1, x2 to output string
     end
@@ -413,16 +489,18 @@ local function print_questions_and_answers()
     -- compute some coefficients
     local polynomial_coeffs = generate_polynomial()
 
+    local equation_string, override_method = cas_equation(table.unpack(polynomial_coeffs,1,3)) 
+        --> cas provides equation and optional override for the method string
+        --> n.b. override_method is an optional output, so might well be nil
+
     -- print the equation
-    tex.print(
-        [[\begin{equation}]]..
-        cas_equation(table.unpack(polynomial_coeffs,1,3)) --> cas provides equation
-        ..[[\end{equation}]] --> then, enclose in $$.$$
-    ) --> write to tex
+    tex.print([[\begin{equation}]]..equation_string..[[\end{equation}]])
+    --> take printed equation string, enclose in $$.$$ and write to tex
 
     -- print the solution
     tex.print(
-        answer_line(table.unpack(polynomial_coeffs)) --> = "avec [méthode], S = {x1;x2}"
+        answer_line(polynomial_coeffs, override_method)
+            --> = "avec [méthode], S = {x1;x2}"
     )
 
 end
@@ -433,13 +511,15 @@ local function full_routine(n)
     -- compute some coefficients
     local polynomial_coeffs = generate_polynomial()
 
-    -- create equation string
-    local eqn_string = [[\(]]..
-        cas_equation(table.unpack(polynomial_coeffs,1,3)) --> cas provides equation
-        ..[[\)]] --> then, enclose in \(...\)
+    local unwrapped_equation, override_method = cas_equation(table.unpack(polynomial_coeffs,1,3)) 
+    --> cas provides equation and optional override for the method string
+
+    -- wrap equation string
+    local eqn_string = [[\(]]..unwrapped_equation..[[\)]] --> enclose in \(...\)
 
     -- create answer string
-    local ans_string = answer_line(table.unpack(polynomial_coeffs)) --> = "avec [méthode], S = {x1;x2}"
+    local ans_string = answer_line(polynomial_coeffs, override_method) 
+        --> = "avec [méthode], S = {x1;x2}"
 
     -- produce output tex with properly formatted answer key
     local output_string = string.format([[

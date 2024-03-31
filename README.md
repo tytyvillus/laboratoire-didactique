@@ -18,7 +18,7 @@ Selon le projet qui vous interesse, vous pouvez lire directement la `README` per
 
 ### Option (i) — sans investissement — Overleaf
 
-Pour une utilisation facile des ressources, vous pouvez y accéder depuis [Overleaf](https://www.overleaf.com/).  Pour ce faire, cliquer sur le lien que vous trouverez dans la `README` du projet qui vous interesse (§ [*Liens rapides*](#liens-rapides)). Depuis votre compte Overleaf, vous pourrez ensuite vous créer une copie personnelle du projet.
+Pour une utilisation facile des ressources, vous pouvez y accéder depuis Overleaf ([www.overleaf.com](https://www.overleaf.com/)).  Pour ce faire, cliquer sur le lien que vous trouverez dans la `README` du projet qui vous interesse (§ [*Liens rapides*](#liens-rapides)). Depuis votre compte Overleaf, vous pourrez ensuite vous créer une copie personnelle du projet.
 
 ![Bouton « copie » dans Overleaf, mis en évidence avec une grande flèche verte.](./images/copier-d-overleaf-oq.png)
 

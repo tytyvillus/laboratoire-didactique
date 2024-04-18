@@ -18,7 +18,11 @@ Pour une présentation plus complète, vous êtes invité·e à lire le reste de
 
 ## Présentation 
 
-Le présent outil est conçu pour permettre à des élèves d'entraîner la résolution de systèmes d'équations linéaires $\left\{\begin{array}{c} a x + b y + c = 0\\ dx + ey + f  = 0 \end{array}\right.$  en utilisant la méthode la plus appropriée, en reconnaîssant les cas suivants :
+Le présent outil est conçu pour permettre à des élèves d'entraîner la résolution de systèmes d'équations linéaires de la forme 
+```math
+\left\{\begin{array}{c} ax + by + c = 0 \\ dx + ey + f = 0 \end{array} \right.
+```
+en utilisant la méthode la plus appropriée, en reconnaîssant les cas suivants :
 
 - quand $a = 0 \text{ ou 1}$ ou $b = 0 \text{ ou 1}$, on peut isoler directement l'une des deux inconnues dans la première équation ;
 

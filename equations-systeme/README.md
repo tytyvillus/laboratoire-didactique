@@ -18,7 +18,7 @@ Pour une présentation plus complète, vous êtes invité·e à lire le reste de
 
 ## Présentation 
 
-Le présent outil est conçu pour permettre à des élèves d'entraîner la résolution de systèmes d'équations linéaires $\left\{\begin{array}{@{=}}a x + b y + c&0\\ dx + ey + f & 0$ en utilisant la méthode la plus appropriée, en reconnaîssant les cas suivants :
+Le présent outil est conçu pour permettre à des élèves d'entraîner la résolution de systèmes d'équations linéaires $\left\{\begin{array}{c} a x + b y + c = 0\\ dx + ey + f  = 0 \end{array}\right.$  en utilisant la méthode la plus appropriée, en reconnaîssant les cas suivants :
 
 - quand $a = 0 \text{ ou 1}$ ou $b = 0 \text{ ou 1}$, on peut isoler directement l'une des deux inconnues dans la première équation ;
 
@@ -28,7 +28,7 @@ Le présent outil est conçu pour permettre à des élèves d'entraîner la rés
 
 - si le déterminant de la matrice des coefficients est nul et que les deux équations ne sont pas multiples l'une de l'autre, alors les droites sont parallèles;
 
-- si $a \mod b \cong 0$ ou inversément, on divise toute l'équation par $b$, respectivement $a$ et on retombe dans le premier cas abordé ci-dessus; idem si $d \mod e \cong 0$ ou inversément;
+- si $a \mod b \equiv 0$ ou inversément, on divise toute l'équation par $b$, respectivement $a$ et on retombe dans le premier cas abordé ci-dessus; idem si $d \mod e \equiv 0$ ou inversément;
 
 - et sinon, faire de la combinaison linéaire (via règle de Cramer si elle est connue).
 

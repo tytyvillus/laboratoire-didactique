@@ -1,0 +1,56 @@
+%!TeX TS-program = lualatex
+%!TeX spellcheck = fr
+
+\documentclass[a4paper, 11pt]{article}
+\usepackage[margin=2cm]{geometry}
+\input{preamble-systeme.tex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%    DÉBUT DU DOCUMENT    %%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\setlength\parindent{0pt} % pour rendre les lignes plus compactes
+\baselineskip=0.9\baselineskip
+
+\begin{document} \thispagestyle{empty}
+	
+%%%%%%%%%%%%%%% CONSIGNE %%%%%%%%%%%%%%%%
+
+{\small\em Résolvez ces systèmes d'équations en utilisant à chaque fois la méthode la plus rapide possible. (N'oubliez pas d'écrire l'équation sous la forme standard si elle ne l'est pas déjà.) Une fois toutes les équations résolues, vérifiez vos réponses dans le corrigé. Indiquez pour chaque question si vous avez utilisé la même méthode que le corrigé ou non. Vous n'avez pas droit à la calculatrice.}
+
+%%%%%%% GÉNÈRE LES QUESTIONS DANS UNE BOÎTE VIRTUELLE %%%%%%%
+
+\raggedright
+\foreach \n in {1, 2, ..., 18}{\afullroutine{\n}}
+
+%%%%%% MET TITRE ET HORODATAGE, PUIS IMPRIME EXERCICES %%%%%%
+
+% "horodatage" = timestamp
+
+\centering\vspace{-12pt}
+
+Exercices \\{\tiny\sffamily (générés le \DTMtoday\ à \DTMcurrenttime s)}\\
+
+\begin{multicols}{3}
+	\showallquestions
+\end{multicols}
+
+\medskip
+
+%%%%%%%% SÉPARATION ENTRE EXERCICES ET RÉPONSES %%%%%%%%
+
+\hbox to \linewidth{\leaders\hbox to 4pt{\hss · \hss}\hfil} 
+% --> traits tillés (voir https://tex.stackexchange.com/a/474310)
+
+% modifiable, par exemple remplaçant par nouvelle page \newpage 
+
+%%%%%% MET TITRE ET HORODATAGE, PUIS IMPRIME EXERCICES %%%%%%
+
+\bigskip
+
+Réponses \\{\tiny\sffamily (générées le \DTMtoday\ à \DTMcurrenttime s)}\\~\\
+
+\linespread{0.5}\selectfont
+\showallanswers
+
+\end{document}

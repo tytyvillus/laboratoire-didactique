@@ -32,7 +32,7 @@ en utilisant la méthode la plus appropriée, en reconnaîssant les cas suivants
 
 - si le déterminant de la matrice des coefficients est nul et que les deux équations ne sont pas multiples l'une de l'autre, alors les droites sont parallèles;
 
-- si $a \mod b \equiv 0$ ou inversément, on divise toute l'équation par $b$, respectivement $a$ et on retombe dans le premier cas abordé ci-dessus; idem si $d \mod e \equiv 0$ ou inversément;
+- si $a \equiv 0 \pmod b$ ou inversément, on divise toute l'équation par $b$, respectivement $a$ et on retombe dans le premier cas abordé ci-dessus; idem si $d \equiv 0 \pmod e$ ou inversément;
 
 - et sinon, faire de la combinaison linéaire (via règle de Cramer si elle est connue).
 
@@ -94,7 +94,8 @@ Il vous faudra donc vous familiariser avec la variante qui vous conviendra. *N.b
 
 Cet outil est distribué avec la licence [GPL-3.0-or-later](https://www.gnu.org/licenses/gpl-3.0.html) par ses auteurs :
 
-- Alexandros Rispo Constantinou et Mathias Blaise
+- Alexandros Rispo Constantinou
+- Mathias Blaise
 
-Une [page GitHub pour cet outil](https://github.com/tytyvillus/laboratoire-didactique) sera bientôt aussi disponible.
+Une [page GitHub pour cet outil](https://github.com/tytyvillus/laboratoire-didactique) est à présent aussi disponible.
 

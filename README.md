@@ -12,7 +12,7 @@ Selon le projet qui vous interesse, vous pouvez lire directement la `README` per
 
 - [Résolution efficace d'équations du second degré](./equations-quadratiques/README.md)
 
-- [Résolution efficace de systèmes d'équations à deux inconnues]() `à venir`
+- [Résolution efficace de systèmes d'équations à deux inconnues](./equations-systeme/README.md) 
 
 ## Utilisation
 
@@ -50,7 +50,7 @@ If you are interested in a specific project, you can jump its respective `README
 
 - [Efficient solutions to quadratic equations](./equations-quadratiques/README.md)
 
-- [Efficient solutions to systems of equations in two unknowns]() `coming soon`
+- [Efficient solutions to systems of equations in two unknowns](./equations-systeme/README.md) 
 
 ## Use
 

@@ -96,8 +96,7 @@ Il vous faudra donc vous familiariser avec la variante qui vous conviendra. *N.b
 
 Cet outil est distribué avec la licence [GPL-3.0-or-later](https://www.gnu.org/licenses/gpl-3.0.html) par ses auteurs :
 
-- Alexandros Rispo Constantinou
 - Mathias Blaise
-
+- Alexandros Rispo Constantinou
 Une [page GitHub pour cet outil](https://github.com/tytyvillus/laboratoire-didactique) est à présent aussi disponible.
 

@@ -4,6 +4,8 @@ Si vous voulez rapidement accéder au projet sans trop avoir à mettre les mains
 
 ![Bouton « copie » dans Overleaf, mis en évidence avec une grande flèche verte.](../images/copier-d-overleaf-oq.png)
 
+- Si vous ne trouvez pas tout-de-suite ce bouton « copie » (peut-être parce que vous tombez sur la page interne du projet), il se peut que vous deviez d'abord vous diriger vers votre page principale en appuyant sur le bouton de la forme d'une maison (⌂) ou en cliquant directement sur ce lien-ci : [www.overleaf.com/project](https://www.overleaf.com/project).
+
 - Assurez-vous, si le document refuse de compiler, que le compilateur soit bien sélectionné comme LuaLaTeX et non pas pdfTeX. Vous accéder à ce paramètre depuis le menu en haut à gauche d'Overleaf.
 
 Vous pouvez aussi télécharger les fichiers et les compiler avec **une version à jour** de LaTeX sur votre ordinateur en choisissant LuaLaTeX :

@@ -187,31 +187,46 @@ local function generate_linear_system(matrix)
 end
 
     -- function that determines the number of solutions of the system
+  -- function that determines the number of solutions of the system
 local function number_solutions_two(eqs)
     -- Coefficients from equations
     local a1, b1, c1 = eqs[1], eqs[2], eqs[3]
     local a2, b2, c2 = eqs[4], eqs[5], eqs[6]
-    local determinant = a1 * b2 - a2 * b1
+    local det = a1 * b2 - a2 * b1
 
-    -- Check if the lines are coincident
-    if a2~=0 and b2~=0 and c2~=0 then
-        if a1/a2 == b1/b2 and b1/b2 == c1/c2 then
-            return math.huge -- Coincident lines, infinitely many solutions
-        -- Check if the lines are parallel
-        elseif a1/a2 == b1/b2 and a1/a2 ~= c1/c2 then
-            return 0 -- Parallel lines, no solutions
-        else  return 1 -- lines are intersecting
-        end
-    elseif a1~=0 and b1~=0 and c1~=0 then
-        if a2/a1 == b2/b1 and b2/b1 == c2/c1 then
-            return math.huge -- Coincident lines, infinitely many solutions
-        -- Check if the lines are parallel
-        elseif a2/a1 == b2/b1 and a2/a1 ~= c2/c1 then
-            return 0 -- Parallel lines, no solutions
-        else  return 1 -- lines are intersecting
+    if det ~= 0 then
+        -- unique solution
+        return 1
+    else
+        -- verifiy if the lines coincide or if they are parallel
+        local ratio_a = a1 / a2
+        local ratio_b = b1 / b2
+        local ratio_c = c1 / c2
+        
+        if (a1 == 0 and a2 == 0) and (b1 == 0 and b2 == 0) then
+            if c1 == c2 then
+                return math.huge  -- zero system
+            else
+                return 0  -- Impossible if c1 != c2
+            end
+        elseif (a1 == 0 and a2 == 0) or (b1 == 0 and b2 == 0) then
+            -- one variable is totally missing
+            if ratio_c == (b1 == 0 and b2 == 0 and ratio_a or ratio_b) then
+                return math.huge
+            else
+                return 0
+            end
+        else
+            if ratio_a == ratio_b and ratio_b == ratio_c then
+                -- lines coincide
+                return math.huge
+            else
+                -- parallel lines
+                return 0
+            end
         end
     end
-end
+end       
 
 local function generate_exercise(probability_singular)
     local system = generate_system(probability_singular)

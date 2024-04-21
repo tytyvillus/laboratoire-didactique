@@ -1,0 +1,24 @@
+# This CITATION.cff file was generated with cffinit.
+# Visit https://bit.ly/cffinit to generate yours today!
+
+cff-version: 1.2.0
+title: OutilsSouples
+message: >-
+  If you use this software, please cite it using the
+  metadata from this file.
+type: software
+authors:
+  - given-names: Alexandros
+    family-names: Rispo Constantinou
+    affiliation: University of Fribourg
+  - given-names: Mathias
+    family-names: Blaise
+    affiliation: University of Fribourg
+repository-code: 'https://github.com/tytyvillus/laboratoire-didactique'
+abstract: >-
+  Tools for French-language secondary-school mathematics
+  classes, to practise solving equations.
+keywords:
+  - mathematics education
+  - teaching tools
+license: GPL-3.0

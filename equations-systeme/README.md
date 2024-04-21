@@ -66,7 +66,7 @@ Il vous faut seulement vous assurer que vous ayez une distribution LaTeX à jour
 
 Le document `main-*.tex` consiste en une série de 10 exercices, mis en page préalablement à travers les commandes
 ```tex
-\foreach \n in {1,2,...,10}{\afullroutine{\n}}
+\foreach \n in {1,2,...,10}{\bfullroutine{\n}}
 ```
 et `\showallquestions` et `\showallanswers`.
 
@@ -98,5 +98,6 @@ Cet outil est distribué avec la licence [GPL-3.0-or-later](https://www.gnu.org/
 
 - Mathias Blaise
 - Alexandros Rispo Constantinou
+
 Une [page GitHub pour cet outil](https://github.com/tytyvillus/laboratoire-didactique) est à présent aussi disponible.
 

@@ -1,20 +1,8 @@
-##  « Je ne gère pas l'informatique » : version en ligne
+# Démarrage rapide
 
-Si vous voulez rapidement accéder au projet sans trop avoir à mettre les mains à la pâte, vous pouvez accéder à une [version en ligne](https://www.overleaf.com/read/hmxjgqgkkmcq#9ccf30). Il faut en créer une copie. Pour cela, le plus simple est de vous créer un compte sur Overleaf, d’ouvrir le lien ci-dessus puis de créer une copie du projet en cliquant sur le bouton « copie » :
+Pour démarrer rapidement l'utilisation de cet outil sans vous soucier de tous les aboutissants de sa création, vous pouvez consulter le fichier [`QUICKSTART.md`](./QUICKSTART.md) ci-joint. Il contient également des conseils sur la modification facile de l'outil.
 
-![Bouton « copie » dans Overleaf, mis en évidence avec une grande flèche verte.](../images/copier-d-overleaf-oq.png)
-
-- Si vous ne trouvez pas tout-de-suite ce bouton « copie » (peut-être parce que vous tombez sur la page interne du projet), il se peut que vous deviez d'abord vous diriger vers votre page principale en appuyant sur le bouton de la forme d'une maison (⌂) ou en cliquant directement sur ce lien-ci : [www.overleaf.com/project](https://www.overleaf.com/project).
-
-- Assurez-vous, si le document refuse de compiler, que le compilateur soit bien sélectionné comme LuaLaTeX et non pas pdfTeX. Vous accéder à ce paramètre depuis le menu en haut à gauche d'Overleaf.
-
-Vous pouvez aussi télécharger les fichiers et les compiler avec **une version à jour** de LaTeX sur votre ordinateur en choisissant LuaLaTeX :
-
-![Bouton « téléchargement » dans Overleaf, mis en évidence avec une grande flèche verte.](../images/telecharger-d-overleaf-oq.png)
-
-Pour une présentation plus complète, vous êtes invité·e à lire le reste de ce document, notamment la [section sur l'utilisation de l'outil](#utilisation-de-loutil).
-
-***
+Si vous lisez ce document depuis un autre chose que la page GitHub, sachez qu'en suivant le lien [pour le dépôt du projet](https://github.com/tytyvillus/laboratoire-didactique) vous pouvez lire des versions de ce guide avec mise en page élégante et d'abord facile.
 
 # Résoudre efficacement un système de deux équations linéaires
 

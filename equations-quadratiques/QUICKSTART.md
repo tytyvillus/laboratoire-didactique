@@ -89,7 +89,7 @@ Si vous voulez *vraiment* complètement refaire la mise en page, quelques comman
 
 - `\amakequestion` : à utiliser en mode mathématique (*mathmode*, c.-à-d. `$\amakequestion$`), génère une équation à résoudre.
 
-- `\amakeanswer` : à utiliser en mode texte, donne la solution recommandée à la dernière équation générée par `\amakequestion`
+- `\amakeanswer` : à utiliser en mode texte, donne la solution recommandée à la dernière équation générée par `\amakequestion`.
 
 Les deux dernières sont plus modulables, pouvant être utilisées pour placer l'équation et la réponse plus librement, par exemple au sein d'une plus grande feuille de travail avec d'autres types de questions.
 
@@ -97,7 +97,7 @@ Si vous le souhaitez, vous pouvez modifier quelques réglages dans l'algorithme 
 
 - choisir la graine pour la générations de nombres pseudoaléatoires, en modifiant le paramètre de la fonction `math.randomseed()` — *si vous voulez pouvoir garder vos feuilles d'une fois à une autre, il vous faut fixer ce paramètre **avant** la compilation* ;
 
-- choisir la terminologie pour la formule de Viète (de base `formule = [[formule quad.\@]]`{.lua}`, que vous pouvez remplacer par `formule = [[formule de Viète]]`{.lua} par exemple) ;
+- choisir la terminologie pour la formule de Viète (de base `formule = [[formule quad.\@]]`, que vous pouvez remplacer par `formule = [[formule de Viète]]` par exemple) ;
 
 - déterminer la probabilité que les solutions d'un exercice donné soient des nombres entiers, en modifiant la fonction booléenne `whether_from_factored_form()` ;
 
@@ -107,6 +107,6 @@ Si vous le souhaitez, vous pouvez modifier quelques réglages dans l'algorithme 
 
 ***
 
-D'autres conseils et modes d'utilisation sont donnés dans la [README](./README.md), notamment pour le traitement par lots (génération automatique de plusieurs fiches d'un coup avec une version locale de LuaLaTeX). Il y a aussi une version de cet outil combiné avec son jumeau sur les systèmes d'équations, disponible [sur Overleaf](https://www.overleaf.com/read/wzdcckddkjzy#f3d012). Pour son mode d'emploi, consulter la `README`.
+D'autres conseils et modes d'utilisation sont donnés dans la [README](./README.md), notamment pour le traitement par lots (génération automatique de plusieurs fiches d'un coup avec une version locale de LuaLaTeX). Il y a aussi une version de cet outil combiné avec son jumeau sur les systèmes d'équations, disponible [sur Overleaf](https://www.overleaf.com/read/wzdcckddkjzy#f3d012). Pour son mode d'emploi, consulter la README.
 
 

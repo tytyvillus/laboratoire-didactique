@@ -93,7 +93,9 @@ Si vous voulez *vraiment* complètement refaire la mise en page, quelques comman
 
 Les deux dernières sont plus modulables, pouvant être utilisées pour placer l'équation et la réponse plus librement, par exemple au sein d'une plus grande feuille de travail avec d'autres types de questions.
 
-Si vous le souhaitez, vous pouvez modifier quelques réglages dans l'algorithme qui décide des polynômes et des méthodes pour les résoudre.  Ces réglages sont tous dans la section intitulée `(EDITABLE) PREAMBLE` du fichier `.lua`. En particulier, vous avez accès aux fonctionnalités suivantes :
+##### Autres modifications
+
+Si vous le souhaitez, vous pouvez également modifier quelques réglages dans l'algorithme qui décide des polynômes et des méthodes pour les résoudre.  Ces réglages sont tous dans la section intitulée `(EDITABLE) PREAMBLE` du fichier `.lua`. En particulier, vous avez accès aux fonctionnalités suivantes :
 
 - choisir la graine pour la générations de nombres pseudoaléatoires, en modifiant le paramètre de la fonction `math.randomseed()` — *si vous voulez pouvoir garder vos feuilles d'une fois à une autre, il vous faut fixer ce paramètre **avant** la compilation* ;
 
@@ -107,6 +109,8 @@ Si vous le souhaitez, vous pouvez modifier quelques réglages dans l'algorithme 
 
 ***
 
-D'autres conseils et modes d'utilisation sont donnés dans la [README](./README.md), notamment pour le traitement par lots (génération automatique de plusieurs fiches d'un coup avec une version locale de LuaLaTeX). Il y a aussi une version de cet outil combiné avec son jumeau sur les systèmes d'équations, disponible [sur Overleaf](https://www.overleaf.com/read/wzdcckddkjzy#f3d012). Pour son mode d'emploi, consulter la README.
+## Plus d'informations
+
+D'autres conseils et modes d'utilisation sont donnés dans la [README](./README.md), notamment pour le traitement par lots (génération automatique de plusieurs fiches d'un coup avec une version locale de LuaLaTeX). Il y a aussi une version combinant cet outil avec son jumeau sur les systèmes d'équations, disponible [sur Overleaf](https://www.overleaf.com/read/wzdcckddkjzy#f3d012). Pour son mode d'emploi, consulter la README.
 
 

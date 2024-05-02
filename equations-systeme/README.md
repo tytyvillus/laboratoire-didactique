@@ -2,7 +2,7 @@
 
 Pour démarrer rapidement l'utilisation de cet outil sans vous soucier de tous les aboutissants de sa création, vous pouvez consulter le fichier [`QUICKSTART.md`](./QUICKSTART.md) ci-joint. Il contient également des conseils sur la modification facile de l'outil.
 
-Si vous lisez ce document depuis un autre chose que la page GitHub, sachez qu'en suivant le lien [pour le dépôt du projet](https://github.com/tytyvillus/laboratoire-didactique) vous pouvez lire des versions de ce guide avec mise en page élégante et d'abord facile.
+Si vous lisez ce document depuis un autre chose que la page GitHub, sachez qu'en suivant le lien [pour le dépôt du projet](https://github.com/tytyvillus/laboratoire-didactique) vous pouvez lire des versions de ce guide d'un abord facile et de mise en page élégante.
 
 # Résoudre efficacement un système de deux équations linéaires
 
@@ -14,27 +14,27 @@ Le présent outil est conçu pour permettre à des élèves d'entraîner la rés
 ```
 en utilisant la méthode la plus appropriée, en reconnaîssant les cas suivants :
 
-- quand $a = 0 \text{ ou 1}$ ou $b = 0 \text{ ou 1}$, on peut isoler directement l'une des deux inconnues dans la première équation ;
+- quand $a \in \lbrace 0, 1\rbrace$ ou $b   \in \lbrace 0, 1\rbrace$, on peut isoler directement l'une des deux inconnues dans la première équation ;
 
-- quand $d = 0$ ou $e=0$, on peut isoler directement l'une des deux inconnues dans la deuxième équation;
+- quand $d = 0$ ou $e=0$, on peut isoler directement l'une des deux inconnues dans la deuxième équation ;
 
-- si l'une des équations est un multiple de l'autre, le nombre de solutions est infini (droites confondues);
+- si l'une des équations est un multiple de l'autre, le nombre de solutions est infini (droites confondues) ;
 
 - si le déterminant de la matrice des coefficients est nul et que les deux équations ne sont pas multiples l'une de l'autre, alors les droites sont parallèles;
 
-- si $a \equiv 0 \pmod b$ ou inversément, on divise toute l'équation par $b$, respectivement $a$ et on retombe dans le premier cas abordé ci-dessus; idem si $d \equiv 0 \pmod e$ ou inversément;
+- si $a \equiv 0 \pmod b$ ou inversément, on divise toute l'équation par $b$, respectivement $a$ et on retombe dans le premier cas abordé ci-dessus; idem si $d \equiv 0 \pmod e$ ou inversément ;
 
 - et sinon, faire de la combinaison linéaire (via règle de Cramer si elle est connue).
 
 
 Pour ce faire, l'outil permet de produire des fiches d'exercices avec des systèmes d'équations linéaires (deux ou trois) à résoudre le plus efficacement possible par les élèves.  Avec les exercices sont générées des solutions recommandées, choisies parmi les méthodes énumérées ci-dessus.  L'utilisation recommandée de l'outil est à faire après avoir discuté et entraîné les différentes méthodes indépendamment, en ayant expliqué l'utilité de chercher une méthode efficace. Ensuite, il conviendra de distribuer une feuille par élève, chacune générée séparément, et de les laisser travailler à les résoudre.  Une fois une proportion suffisante des exercices résolus, l'enseignant·e peut procéder à une mise en commun lors de laquelle chaque élève — par exemple — expose l'équation dont la méthode de résolution a été perçue comme la moins évidente.
 
-Ce projet entre dans le contexte d'entraîner la compétence de base « utiliser avec souplesse l'outillage mathématique » donné dans l'*Annexe au plan d'études cadre du 9 juin 1994 pour les écoles de maturité : Compétences de base en mathématiques et en langue première constitutives de l'aptitude générale aux études supérieures, du 17 mars 2016*. 
+Ce projet entre dans le contexte d'entraîner la compétence de base « utiliser avec souplesse l'outillage mathématique » donnée dans l'*Annexe au plan d'études cadre du 9 juin 1994 pour les écoles de maturité : Compétences de base en mathématiques et en langue première constitutives de l'aptitude générale aux études supérieures, du 17 mars 2016*. 
 
 
 ## Structure de l'outil
 
-L'outil se présente comme quatre fichiers dans une archive `.zip` : la README, un fichier `codeSysteme.lua`, un fichier `main-systeme.tex` et un fichier `preamble-systeme.tex`.  
+L'outil se présente comme cinq fichiers dans une archive `.zip` : le QUICKSTART, la README, un fichier `codeSysteme.lua`, un fichier `main-systeme.tex` et un fichier `preamble-systeme.tex`.  
 
 - Le `*.lua` contient la majorité de l'algorithme servant à produire les questions.
 
@@ -48,9 +48,8 @@ L'outil se présente comme quatre fichiers dans une archive `.zip` : la README
 L'outil est conçue pour que, après avoir décompressé l'archive `.zip`, il suffise d'ouvrir le fichier `main-*.pdf` dans votre éditeur TeX favori et de le compiler pour obtenir une fiche complète et utilisable.  C'est un outil « prêt à l'emploi » (« *plug and play* »). 
 
 Il vous faut seulement vous assurer que vous ayez une distribution LaTeX à jour, et **compiler le document avec le moteur LuaLaTeX** (et non pdfLaTeX ou XeLaTeX).
-***
 
-### Modifier le document : mains à la pâte
+***
 
 ### Modifier le document : mains à la pâte
 
@@ -58,27 +57,69 @@ Il vous faut seulement vous assurer que vous ayez une distribution LaTeX à jour
 
 Le document `main-*.tex` consiste en une série de 18 exercices, mis en page algorithmiquement avec les commandes
 ```tex
-\foreach \n in {1,2,...,18}{\afullroutine{\n}}
+\foreach \n in {1,2,...,18}{\bfullroutine{\n}}
 ```
 et `\showallquestions` et `\showallanswers`.
+
+Quelques commandes additionnelles sont également proposées directement dans le `main-*.tex`pour une mise en page alternative :
+
+- `\bprintqna` : imprime l'équation sur une ligne, suivie de la réponse.
+
+- `\bmakequestion` : à utiliser en mode mathématique (*mathmode*), génère une équation à résoudre.
+
+- `\bmakeanswer` : à utiliser en mode texte, donne la solution recommandée à la dernière équation générée par `\bmakequestion`.
+
+Les deux dernières sont plus modulables, pouvant être utilisées pour placer l'équation et la réponse plus librement, par exemple au sein d'une plus grande feuille de travail avec d'autres types de questions.
 
 #### Depuis le code `.lua`
 
 Si vous le souhaitez, vous pouvez modifier quelques réglages dans l'algorithme qui décide des polynômes et des méthodes pour les résoudre.  Ces réglages sont tous dans la section intitulée `(EDITABLE) PREAMBLE` du fichier `.lua`. En particulier, vous avez accès aux fonctionnalités suivantes :
 
 - choisir la graine pour la générations de nombres pseudoaléatoires, en modifiant le paramètre de la fonction `math.randomseed()` — *si vous voulez pouvoir garder vos feuilles d'une fois à une autre, il vous faut fixer ce paramètre **avant** la compilation* ;
-- choisir la probabilité d'avoir une matrice de coefficients qui soit singulière, en modifiant le paramètre `probability_singular`;
+- choisir la probabilité d'avoir une matrice de coefficients qui soit singulière, en modifiant le paramètre `probability_singular`.
 
-### Traitement par lot
+#### Accès à des fonctions additionnelles 
+
+Pour les utilisat·eu·rice·s les plus téméraires, quelques dernières fonctions sont également fournies à LaTeX depuis le code Lua. C'est la dernière section du code `mainSysteme.tex`, qui ressemble à ceci :
+
+```lua
+-- INTERFACE WITH LUALATEX ENGINE --
+
+-- Export user-accessible functions (renamed using syntax `new = old`):
+return { 
+    polynomial = generate_exercise, -- returns {coefficients, num_sols, x, y}
+    methodString = pick_method_case, -- provides recommended method
+    printEquation = cas_equation, -- question preprinted for LaTeX
+    answer = answer_line, -- answer preprinted for LaTeX
+    fullRoutine = full_routine, -- whole shebang
+    printQnA = print_questions_and_answers, -- alternative, single-equation formatting style
+}
+```
+
+Pour accéder à ces fonctions, il faut les appeler depuis un document `.tex`. C'est ce qui est déjà fait dans `preamble-*.tex` pour certaines de celles-ci, avec les commandes suivantes.
+
+```tex
+% Activer les fonctions dans le code / Load lua code:
+\directlua{codeB = require "codeSysteme"} 
+
+% Convertir fonctions de code.lua en commandes LaTeX / Extract useful functions as LaTeX commands:
+\newcommand{\bfullroutine}[1]{\directlua{codeB.fullRoutine(#1)}} % format par défaut / default style
+
+%[...]
+```
+
+La syntaxe de ces fonctions est documentée dans le fichier `mainSysteme.lua` directement.
+
+### Traitement par lots
 
 Pour produire plusieurs feuilles différentes d'un coup, afin de pouvoir par exemple les distribuer individuellement à une classe de 20 élèves, nous n'avons malheureusement pas trouvé d'autre solution que d'appeler plusieurs fois le moteur LuaLaTeX depuis un programme externe. Par exemple, sur Linux, vous pouvez taper le code suivant dans Bash depuis le dossier contenant `main-*.tex` :
 
 ```bash
-for i in {1..20}; do lualatex -jobname feuille-$i main-quadratique.tex; done
+for i in {1..20}; do lualatex -jobname feuille-$i main-systeme.tex; done
 ```
 Il faudra cependant adapter ces commandes à la syntaxe particulière de votre système opératoire. Un autre exemple, pour Windows : ouvrez le dossier contenant `main-*.tex`, effectuez un clic-droit et sélectionner *Ouvrir dans le Terminal*. (Vérifiez que celui-ci soit bien la Windows PowerShell.) Dans le terminal, vous pouvez ensuite taper :
 ```powershell
-for ($var = 1; $var -le 20; $var++) {lualatex.exe -jobname feuille-$var main-quadratique.tex}
+for ($var = 1; $var -le 20; $var++) {lualatex.exe -jobname feuille-$var main-systeme.tex}
 ```
 Il vous faudra donc vous familiariser avec la variante qui vous conviendra. *N.b.* — il vous faudra aussi adapter le nom de votre moteur LuaLaTeX (`lualatex`, `lualatex.exe` ou autre).
 
@@ -226,7 +267,7 @@ Dans le cadre de ce laboratoire didactique, deux outils ont été créés : l'
 
 % Pour librement produire question, et séparément la réponse
 \newcommand{\bmakequestion}{% 
-	% MUST BE INSERTED IN MATHMODE: \(\amakequestion\)
+	% MUST BE INSERTED IN MATHMODE: \(\bmakequestion\)
 		\directlua{%
 			coeffs, num_sols, x, y = codeB.polynomial(0.2)
 			eqn = codeB.printEquation(coeffs)
@@ -279,6 +320,7 @@ Un exemple de fiche créée suivant cette procédure est disponible [sur Overlea
 
 Cet outil est distribué avec la licence [GPL-3.0-or-later](https://www.gnu.org/licenses/gpl-3.0.html) par ses auteurs :
 
-- Alexandros Rispo Constantinou et Mathias Blaise
+- Alexandros Rispo Constantinou
+- Mathias Blaise
 
 Une [page GitHub pour cet outil](https://github.com/tytyvillus/laboratoire-didactique) est également disponible.

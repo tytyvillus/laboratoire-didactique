@@ -18,7 +18,7 @@ math.randomseed(os.time()) -- e.g. 2 or os.time()
 -- GENERAL PARAMETERS --> modify at will but at your own peril
 
 -- Choose your preferred terminology for the quadratic formula:
-local formule = [[formule quad.\@]]
+local formule = [[formule quadr.\@]]
 --> typical choices are [[formule de Viète]] or [[formule quadratique]]
 
 local function whether_from_factored_form () 

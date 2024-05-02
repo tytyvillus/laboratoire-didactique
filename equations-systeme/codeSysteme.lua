@@ -423,7 +423,7 @@ end
 -- Export user-accessible functions (renamed using syntax `new = old`):
 return { 
     polynomial = generate_exercise, -- returns {coefficients, num_sols, x, y}
-    methodString = pick_method, -- provides recommended method
+    methodString = pick_method_case, -- provides recommended method
     printEquation = cas_equation, -- question preprinted for LaTeX
     answer = answer_line, -- answer preprinted for LaTeX
     fullRoutine = full_routine, -- whole shebang

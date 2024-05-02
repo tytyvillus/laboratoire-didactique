@@ -64,40 +64,233 @@ Il vous faut seulement vous assurer que vous ayez une distribution LaTeX à jour
 
 ### Modifier le document : mains à la pâte
 
-Le document `main-*.tex` consiste en une série de 10 exercices, mis en page préalablement à travers les commandes
+### Modifier le document : mains à la pâte
+
+#### Depuis le `.tex`
+
+Le document `main-*.tex` consiste en une série de 18 exercices, mis en page algorithmiquement avec les commandes
 ```tex
-\foreach \n in {1,2,...,10}{\bfullroutine{\n}}
+\foreach \n in {1,2,...,18}{\afullroutine{\n}}
 ```
 et `\showallquestions` et `\showallanswers`.
 
+#### Depuis le code `.lua`
 
 Si vous le souhaitez, vous pouvez modifier quelques réglages dans l'algorithme qui décide des polynômes et des méthodes pour les résoudre.  Ces réglages sont tous dans la section intitulée `(EDITABLE) PREAMBLE` du fichier `.lua`. En particulier, vous avez accès aux fonctionnalités suivantes :
 
-- choisir la graine pour la générations de nombres pseudoaléatoires, en modifiant le paramètre de la fonction `math.randomseed()` ;
+- choisir la graine pour la générations de nombres pseudoaléatoires, en modifiant le paramètre de la fonction `math.randomseed()` — *si vous voulez pouvoir garder vos feuilles d'une fois à une autre, il vous faut fixer ce paramètre **avant** la compilation* ;
 - choisir la probabilité d'avoir une matrice de coefficients qui soit singulière, en modifiant le paramètre `probability_singular`;
 
-***
+### Traitement par lot
 
 Pour produire plusieurs feuilles différentes d'un coup, afin de pouvoir par exemple les distribuer individuellement à une classe de 20 élèves, nous n'avons malheureusement pas trouvé d'autre solution que d'appeler plusieurs fois le moteur LuaLaTeX depuis un programme externe. Par exemple, sur Linux, vous pouvez taper le code suivant dans Bash depuis le dossier contenant `main-*.tex` :
 
 ```bash
-for i in {1..20}; do lualatex -jobname feuille-$i main-systeme.tex; done
+for i in {1..20}; do lualatex -jobname feuille-$i main-quadratique.tex; done
 ```
-
 Il faudra cependant adapter ces commandes à la syntaxe particulière de votre système opératoire. Un autre exemple, pour Windows : ouvrez le dossier contenant `main-*.tex`, effectuez un clic-droit et sélectionner *Ouvrir dans le Terminal*. (Vérifiez que celui-ci soit bien la Windows PowerShell.) Dans le terminal, vous pouvez ensuite taper :
-
 ```powershell
-for ($var = 1; $var -le 20; $var++) {lualatex.exe -jobname feuille-$var main-systeme.tex}
+for ($var = 1; $var -le 20; $var++) {lualatex.exe -jobname feuille-$var main-quadratique.tex}
+```
+Il vous faudra donc vous familiariser avec la variante qui vous conviendra. *N.b.* — il vous faudra aussi adapter le nom de votre moteur LuaLaTeX (`lualatex`, `lualatex.exe` ou autre).
+
+### Intégration avec l'autre outil du même projet
+
+Dans le cadre de ce laboratoire didactique, deux outils ont été créés : l'un sur les systèmes d'équations et l'autre sur les équations du second degré. Si vous voulez pouvoir combiner les deux types de questions dans un seul et même document, créez un dossier contenant les fichiers `codeQuadratique.lua` et `codeSysteme.lua`. Ensuite, créez un fichier `preamble.tex` et copiez-y le code suivant (n'oubliez pas de sauvegarder).
+
+```tex
+%!TeX root = main.tex
+
+% --- PRÉAMBULE  --- 
+
+% langue et police:
+\usepackage[quiet]{fontspec}
+\usepackage{polyglossia} \setmainlanguage[variant=swiss]{french}
+
+% calculs internes:
+\usepackage{luacas}
+
+% maths:
+\usepackage{amsmath} 
+\usepackage{amssymb}
+\usepackage[warnings-off={mathtools-colon,mathtools-overbracket}, math-style=ISO,]{unicode-math} 
+\usepackage[locale = FR, round-precision = 3, round-mode = figures, round-pad = false,]{siunitx} 
+% vvvvvvvvvvvvvvvvvvvvv
+%	\newcommand{\num}[1]{#1}
+%% 	^ à décommenter si vous voulez vous débarasser de ‹siunitx›
+%% 	^ uncomment if you want to get rid of ‹siunitx›
+
+% choix esthétiques, facultatifs:
+\let\oldemptyset\emptyset
+\let\emptyset\varnothing
+
+% permettent mise en page:
+\usepackage{multicol}
+\usepackage{pgffor}
+
+% date et heure
+\usepackage[timesep=., showzone=false, hourminsep=h, minsecsep=m,]{datetime2} % permet les horodatages 
+
+
+% ---- ANSWER-PRINTING STYLE FROM https://tex.stackexchange.com/a/15354 ----
+
+% Define answer environment 
+
+\newbox\allanswers
+\setbox\allanswers=\vbox{}
+
+\newenvironment{customanswer}
+{\global\setbox\allanswers=\vbox\bgroup
+	\unvbox\allanswers
+	\vspace{-4pt}
+}
+{\bigbreak\egroup}
+
+\newcommand{\showallanswers}{\par\unvbox\allanswers}
+
+% Define question environment
+
+\newbox\allquestions
+\setbox\allquestions=\vbox{}
+
+\newenvironment{customquestion}
+{\global\setbox\allquestions=\vbox\bgroup
+	\unvbox\allquestions
+}
+{\bigbreak\egroup}
+
+\newcommand{\showallquestions}{\par\unvbox\allquestions}
+
+
+%% ---------- PROVIDE \timestamp COMMAND -------------
+% -- from https://flaterco.com/util/timestamp.sty --
+
+\makeatletter
+
+\newcount\@DT@modctr
+\newcount\@dtctr
+
+\def\@modulo#1#2{%
+	\@DT@modctr=#1\relax
+	\divide \@DT@modctr by #2\relax
+	\multiply \@DT@modctr by #2\relax
+	\advance #1 by -\@DT@modctr}
+
+\newcommand{\xxivtime}{%
+	\@dtctr=\time%
+	\divide\@dtctr by 60
+	\ifnum\@dtctr<10 0\fi\the\@dtctr.%
+	\@dtctr=\time%
+	\@modulo{\@dtctr}{60}%
+	\ifnum\@dtctr<10 0\fi\the\@dtctr%
+}
+
+\newcommand{\timestamp}{\the\year-%
+	\ifnum\month<10 0\fi\the\month-%
+	\ifnum\day<10 0\fi\the\day\ \xxivtime}
+
+\makeatother
+
+
+% ---------------- ACCÈS AU CODE LUA: -----------------
+
+% Aide-mémoire Lua: https://devhints.io/lua
+
+%% OUTIL SECOND DEGRÉ
+
+% Activer les fonctions dans le code:
+% Load lua code:
+\directlua{codeA = require "codeQuadratique"} 
+
+% Pour le format par défaut:
+\newcommand{\afullroutine}[1]{\directlua{codeA.fullRoutine(#1)}}
+
+% Pour imprimer question immédiatement suivie de réponse:
+\newcommand{\aprintqna}{\directlua{codeA.printQnA()}}
+
+% Pour librement produire question, et séparément la réponse
+\newcommand{\amakequestion}{% 
+	% MUST BE INSERTED IN MATHMODE: \(\amakequestion\)
+		\directlua{%
+			polynomialcoeffs = codeA.polynomial()
+			eqn = codeA.printEquation(table.unpack(polynomialcoeffs,1,3))
+			tex.print(eqn)
+		}
+	}
+\newcommand{\amakeanswer}{%
+	% IN TEXTMODE
+		\directlua{%
+			tex.print(codeA.answer(table.unpack(polynomialcoeffs)))
+		}
+	}
+
+%% OUTIL SYSTÈME D'ÉQUATIONS
+
+% Activer les fonctions dans le code:
+% Load lua code:
+\directlua{codeB = require "codeSysteme"} 
+
+% Pour le format par défaut:
+\newcommand{\bfullroutine}[1]{\directlua{codeB.fullRoutine(#1)}}
+
+% Pour imprimer question immédiatement suivie de réponse:
+\newcommand{\bprintqna}{\directlua{codeB.printQnA()}}
+
+% Pour librement produire question, et séparément la réponse
+\newcommand{\bmakequestion}{% 
+	% MUST BE INSERTED IN MATHMODE: \(\amakequestion\)
+		\directlua{%
+			coeffs, num_sols, x, y = codeB.polynomial(0.2)
+			eqn = codeB.printEquation(coeffs)
+			tex.print(eqn)
+		}
+	}
+\newcommand{\bmakeanswer}{%
+	% IN TEXTMODE
+		\directlua{%
+			tex.print(codeB.answer(coeffs, num_sols, x, y))
+		}
+	}
+
 ```
 
-Il vous faudra donc vous familiariser avec la variante qui vous conviendra. *N.b.* — il vous faudra aussi adapter le nom de votre moteur LuaLaTeX (`lualatex`, `lualatex.exe` ou autre).
+Une fois que c'est fait, vous pouvez créer un fichier `main.tex` (toujours dans le même dossier) et le remplir comme vous convient, tant que vous n'oubliez pas d'y inclure le préambule avec la commande `\input{preamble.tex}`. Une idée de base depuis laquelle travailler est la suivante.
+
+```tex
+\documentclass[a4paper, 11pt]{article}
+\usepackage[margin=2cm]{geometry}
+\input{preamble.tex}
+
+\begin{document} \thispagestyle{empty}
+
+	\foreach \n in {1,2,...,12}{\afullroutine{\n}} % prépare les questions/réponses
+	\begin{multicols}{3} \showallquestions \end{multicols} % imprime la liste des questions
+	~\medskip \showallanswers   % espace vertical, puis imprime la liste des réponses
+
+	\medskip %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+	\hbox to \linewidth{\leaders\hbox to 4pt{\hss · \hss}\hfil} % séparation entre les parties
+
+	\setbox\allanswers=\vbox{} 	% vider la boîte des réponses
+	\setbox\allquestions=\vbox{}	% vider la boîte des questions
+
+	\medskip %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+	\foreach \n in {1,2,...,9}{\bfullroutine{\n}} % prépare les questions/réponses
+	\begin{multicols}{3} \showallquestions \end{multicols} % imprime la liste des questions
+	~\medskip \showallanswers   % espace vertical, puis imprime la liste des réponses
+
+\end{document}
+```
+
+Un exemple de fiche créée suivant cette procédure est disponible [sur Overleaf](https://www.overleaf.com/read/wzdcckddkjzy#f3d012).
+
+***
 
 ## Licence et attributions 
 
 Cet outil est distribué avec la licence [GPL-3.0-or-later](https://www.gnu.org/licenses/gpl-3.0.html) par ses auteurs :
 
-- Mathias Blaise
-- Alexandros Rispo Constantinou
+- Alexandros Rispo Constantinou et Mathias Blaise
 
-Une [page GitHub pour cet outil](https://github.com/tytyvillus/laboratoire-didactique) est à présent aussi disponible.
-
+Une [page GitHub pour cet outil](https://github.com/tytyvillus/laboratoire-didactique) est également disponible.

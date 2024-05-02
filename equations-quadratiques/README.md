@@ -12,7 +12,7 @@ Le présent outil est conçu pour permettre à des élèves d'entraîner la rés
 
 - quand $b = 0$, on peut résoudre par réarrangement $x^2 = - \frac c a$ ;
 
-- quand $c = 0$, on peut factoriser $ax$ pour avoir $a x (\frac b a x + \frac c a) = 0$ ;
+- quand $c = 0$, on peut factoriser $ax$ pour avoir $a x \left(\frac b a x + \frac c a \right) = 0$ ;
 
 - si c'est un carré parfait, utiliser les identités remarquables $(A \pm B)^2$ pour factoriser ;
 

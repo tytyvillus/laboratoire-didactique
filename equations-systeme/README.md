@@ -61,7 +61,7 @@ Le document `main-*.tex` consiste en une série de 18 exercices, mis en page alg
 ```
 et `\showallquestions` et `\showallanswers`.
 
-Quelques commandes additionnelles sont également proposées directement dans le `main-*.tex`pour une mise en page alternative :
+Quelques commandes additionnelles sont également proposées directement dans le `main-*.tex` pour une mise en page alternative :
 
 - `\bprintqna` : imprime l'équation sur une ligne, suivie de la réponse.
 

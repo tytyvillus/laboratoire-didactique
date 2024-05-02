@@ -1,6 +1,6 @@
 # Démarrage rapide
 
-Pour démarrer rapidement l'utilisation de cet outil sans vous soucier de tous les aboutissants de sa création, vous pouvez consulter le fichier [`QUICKSTART.md`](./QUICKSTART.md) ci-joint. Ce fichier contient également des conseils sur la modification facile de l'outil.
+Pour démarrer rapidement l'utilisation de cet outil sans vous soucier de tous les aboutissants de sa création, vous pouvez consulter le fichier [`QUICKSTART.md`](./QUICKSTART.md) ci-joint. Il contient également des conseils sur la modification facile de l'outil.
 
 Si vous lisez ce document depuis un autre chose que la page GitHub, sachez qu'en suivant le lien [pour le dépôt du projet](https://github.com/tytyvillus/laboratoire-didactique) vous pouvez lire des versions de ce guide avec mise en page élégante et d'abord facile.
 
@@ -40,7 +40,7 @@ L'outil se présente comme cinq fichiers dans une archive `.zip` : le QUICKSTA
 
 ### Démarrage rapide
 
-L'outil est conçue pour que, après avoir décompressé l'archive `.zip`, il suffise d'ouvrir le fichier `main-*.pdf` dans votre éditeur TeX favori et de le compiler pour obtenir une fiche complète et utilisable.  C'est un outil « prêt à l'emploi » (« *plug and play* »). 
+L'outil est disposé afin que, après avoir décompressé l'archive `.zip`, il suffise d'ouvrir le fichier `main-*.pdf` dans votre éditeur TeX favori et de le compiler pour obtenir une fiche complète et utilisable.  C'est un outil « prêt à l'emploi » (« *plug and play* »). 
 
 Il vous faut seulement vous assurer que vous ayez une distribution LaTeX à jour, et **compiler le document avec le moteur LuaLaTeX** (et non pdfLaTeX ou XeLaTeX). 
 
@@ -78,7 +78,7 @@ Si vous le souhaitez, vous pouvez modifier quelques réglages dans l'algorithme 
 
 - choisir la graine pour la générations de nombres pseudoaléatoires, en modifiant le paramètre de la fonction `math.randomseed()` — *si vous voulez pouvoir garder vos feuilles d'une fois à une autre, il vous faut fixer ce paramètre **avant** la compilation* ;
 
-- choisir la terminologie pour la formule de Viète (de base `formule = [[formule quad.\@]]`{.lua}`, que vous pouvez remplacer par `formule = [[formule de Viète]]`{.lua} par exemple) ;
+- choisir la terminologie pour la formule de Viète (de base `formule = [[formule quad.\@]]`, que vous pouvez remplacer par `formule = [[formule de Viète]]` par exemple) ;
 
 - déterminer la probabilité que les solutions d'un exercice donné soient des nombres entiers, en modifiant la fonction booléenne `whether_from_factored_form()` ;
 
@@ -88,7 +88,7 @@ Si vous le souhaitez, vous pouvez modifier quelques réglages dans l'algorithme 
 
 #### Accès à des fonctions additionnelles 
 
-Pour les utilisat·eu·rice·s les plus téméraires, quelques dernières fonctions sont également fournies à LaTeX depuis le code Lua. C'est la dernière section du code `mainQuadratique.tex`, qui ressemble à ceci:
+Pour les utilisat·eu·rice·s les plus téméraires, quelques dernières fonctions sont également fournies à LaTeX depuis le code Lua. C'est la dernière section du code `mainQuadratique.tex`, qui ressemble à ceci :
 
 ```lua
 -- INTERFACE WITH LUALATEX ENGINE --
@@ -116,7 +116,7 @@ Pour accéder à ces fonctions, il faut les appeler depuis un document `.tex`. C
 %[...]
 ```
 
-La syntaxe de ces fonctions est documentée dans le code `.lua` lui-même.
+La syntaxe de ces fonctions est documentée dans le fichier `mainQuadratique.lua` directement.
 
 ### Traitement par lot
 

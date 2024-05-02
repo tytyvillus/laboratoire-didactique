@@ -41,13 +41,13 @@ Cherchez le bloc de texte suivant, et modifiez-y la consigne comme bon vous semb
 
 ##### Nombre de questions
 
-Pour modifier le nombre de questions imprimées, cherchez le bloc suivant et remplacez `24` par le nombre qui vous arrange.
+Pour modifier le nombre de questions imprimées, cherchez le bloc suivant et remplacez `18` par le nombre qui vous arrange.
 
 ```tex
 %%%%%%% GÉNÈRE LES QUESTIONS DANS UNE BOÎTE VIRTUELLE %%%%%%%
 
 \raggedright
-\foreach \n in {1,2,...,24}{\afullroutine{\n}}
+\foreach \n in {1, 2, ..., 18}{\bfullroutine{\n}}
 
 ```
 
@@ -67,19 +67,30 @@ Si vous voulez refaire depuis le début la mise en page, sachez que le document 
 
 ```tex
 \documentclass[a4paper, 11pt]{article}
-\input{preamble-quadratique.tex}
+\input{preamble-systeme.tex}
 
 \begin{document}
 
-	\foreach \n in {1,2,...,24}{\afullroutine{\n}} % prépare les questions/réponses
+	\foreach \n in {1, 2, ..., 18}{\bfullroutine{\n}} % prépare les questions/réponses
 
 	\showallquestions % imprime la liste des questions
 
 	\showallanswers % imprime la liste des réponses
 
 \end{document}
-
 ```
+
+##### Mises en page alternatives
+
+Si vous voulez *vraiment* complètement refaire la mise en page, quelques commandes additionnelles vous sont fournies, à utiliser depuis le fichier `main-*.tex` :
+
+- `\bprintqna` : imprime l'équation sur une ligne, suivie de la réponse.
+
+- `\bmakequestion` : à utiliser en mode mathématique (*mathmode*, c.-à-d. `$\bmakequestion$`), génère une équation à résoudre.
+
+- `\bmakeanswer` : à utiliser en mode texte, donne la solution recommandée à la dernière équation générée par `\amakequestion`.
+
+Les deux dernières sont plus modulables, pouvant être utilisées pour placer l'équation et la réponse plus librement, par exemple au sein d'une plus grande feuille de travail avec d'autres types de questions.
 
 ##### Autres modifications
 
@@ -87,4 +98,11 @@ Si vous le souhaitez, vous pouvez modifier quelques réglages dans l'algorithme 
 
 - choisir la graine pour la générations de nombres pseudoaléatoires, en modifiant le paramètre de la fonction `math.randomseed()` — *si vous voulez pouvoir garder vos feuilles d'une fois à une autre, il vous faut fixer ce paramètre **avant** la compilation* ;
 
-- déterminer la probabilité que le système généré soit singulier, en modifiant la variable `probability_singular` ;
+- déterminer la probabilité que le système généré soit singulier, en modifiant la variable `probability_singular`.
+
+***
+
+## Plus d'informations
+
+D'autres conseils et modes d'utilisation sont donnés dans la [README](./README.md), notamment pour le traitement par lots (génération automatique de plusieurs fiches d'un coup avec une version locale de LuaLaTeX). Il y a aussi une version combinant cet outil avec son jumeau sur les systèmes d'équations, disponible [sur Overleaf](https://www.overleaf.com/read/wzdcckddkjzy#f3d012). Pour son mode d'emploi, consulter la README.
+

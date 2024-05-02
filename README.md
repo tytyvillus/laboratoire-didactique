@@ -22,6 +22,8 @@ Pour une utilisation facile des ressources, vous pouvez y accéder depuis Overle
 
 ![Bouton « copie » dans Overleaf, mis en évidence avec une grande flèche verte.](./images/copier-d-overleaf-oq.png)
 
+Il existe également une version intégrant les deux projets, disponible [sur Overleaf](https://www.overleaf.com/read/wzdcckddkjzy#f3d012). *N. b.* — Cette version est encore en phase de test.
+
 ### Option (ii) — pour les aguerri·e·s — compilation locale
 
 Télécharger un des `.zip`, le décompresser et compiler le fichier `main-*.tex` avec LuaLaTeX.
@@ -56,9 +58,11 @@ If you are interested in a specific project, you can jump its respective `README
 
 ### Option (i) — easy use — Overleaf
 
-For an easy, online quick-start, you can compile the files from [Overleaf](https://www.overleaf.com/).  Click on the Overleaf link which you'll find in the respective projects' `README`s (§ [*Quick links*](#quick-links)). You can then copy the project to your personal Overleaf account.
+For an easy, online quick-start, you can compile the files from  Overleaf ([www.overleaf.com](https://www.overleaf.com/)).  Click on the Overleaf link which you'll find in the respective projects' `README`s (§ [*Quick links*](#quick-links)). You can then copy the project to your personal Overleaf account.
 
 ![Large green arrow pointing to the ‘copy’ button in Overleaf.](./images/copier-d-overleaf-oq.png)
+
+There is also a *currently experimental* version combining both projects, available at the following [Overleaf link](https://www.overleaf.com/read/wzdcckddkjzy#f3d012).
 
 ### Option (ii) — for LaTeX geeks — local compilation
 
@@ -78,3 +82,8 @@ Works with any standard **up-to-date** LaTeX distribution, *e.g.* TeXLive or Mik
 # Licence
 
 [GPL-3.0-or-later](https://www.gnu.org/licenses/gpl-3.0.html)
+
+# Auteurs / authors
+
+- Alex Rispo Constantinou
+- Mathias Blaise

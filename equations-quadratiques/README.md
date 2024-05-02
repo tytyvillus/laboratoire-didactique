@@ -247,7 +247,7 @@ Dans le cadre de ce laboratoire didactique, deux outils ont été créés : l'
 
 % Pour librement produire question, et séparément la réponse
 \newcommand{\amakequestion}{% 
-	% MUST BE INSERTED IN MATHMODE: \(\amakequestion\)
+	% MUST BE INSERTED IN MATHMODE: $\amakequestion$
 		\directlua{%
 			polynomialcoeffs = codeA.polynomial()
 			eqn = codeA.printEquation(table.unpack(polynomialcoeffs,1,3))
@@ -275,7 +275,7 @@ Dans le cadre de ce laboratoire didactique, deux outils ont été créés : l'
 
 % Pour librement produire question, et séparément la réponse
 \newcommand{\bmakequestion}{% 
-	% MUST BE INSERTED IN MATHMODE: \(\amakequestion\)
+	% MUST BE INSERTED IN MATHMODE: $\bmakequestion$
 		\directlua{%
 			coeffs, num_sols, x, y = codeB.polynomial(0.2)
 			eqn = codeB.printEquation(coeffs)

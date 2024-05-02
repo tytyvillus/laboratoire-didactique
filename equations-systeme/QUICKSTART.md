@@ -88,7 +88,7 @@ Si vous voulez *vraiment* complètement refaire la mise en page, quelques comman
 
 - `\bmakequestion` : à utiliser en mode mathématique (*mathmode*, c.-à-d. `$\bmakequestion$`), génère une équation à résoudre.
 
-- `\bmakeanswer` : à utiliser en mode texte, donne la solution recommandée à la dernière équation générée par `\amakequestion`.
+- `\bmakeanswer` : à utiliser en mode texte, donne la solution recommandée à la dernière équation générée par `\bmakequestion`.
 
 Les deux dernières sont plus modulables, pouvant être utilisées pour placer l'équation et la réponse plus librement, par exemple au sein d'une plus grande feuille de travail avec d'autres types de questions.
 
@@ -104,5 +104,5 @@ Si vous le souhaitez, vous pouvez modifier quelques réglages dans l'algorithme 
 
 ## Plus d'informations
 
-D'autres conseils et modes d'utilisation sont donnés dans la [README](./README.md), notamment pour le traitement par lots (génération automatique de plusieurs fiches d'un coup avec une version locale de LuaLaTeX). Il y a aussi une version combinant cet outil avec son jumeau sur les systèmes d'équations, disponible [sur Overleaf](https://www.overleaf.com/read/wzdcckddkjzy#f3d012). Pour son mode d'emploi, consulter la README.
+D'autres conseils et modes d'utilisation sont donnés dans la [README](./README.md), notamment pour le traitement par lots (génération automatique de plusieurs fiches d'un coup avec une version locale de LuaLaTeX). Il y a aussi une version combinant cet outil avec son jumeau sur les équations du second degré, disponible [sur Overleaf](https://www.overleaf.com/read/wzdcckddkjzy#f3d012). Pour son mode d'emploi, consulter la README.
 

@@ -112,7 +112,7 @@ end
 -- warning: have a lot of checks of type a==0
 
 -- Generate two factors linear polynomials:
- -- generate 2x2 matrices to have 0, 1 or infinitely many solutions depending on the random number given (if the matrix is singular, then it will be wiped away 80% of the time)
+ -- generate 2x2 matrices to have 0, 1 or infinitely many solutions depending on the random number given 
 local function generate_system(probability_singular)
     
     local rat = whether_singular()
@@ -128,6 +128,9 @@ local function generate_system(probability_singular)
 
             -- also generate proportionality coefficient:
             local k = math.random(-7, 7)
+            while k == 0 do
+                k= math.random(-7,7)
+            end
             -- now compute other coefficients:
             local a2, b2, c2 = k*a1, k*b1, k*c1
             system = {a1, b1, c1, a2, b2, c2}
@@ -142,6 +145,9 @@ local function generate_system(probability_singular)
 
             -- also generate proportionality coefficient:
             local k = math.random(-7, 7)
+            while k == 0 do
+                k= math.random(-7,7)
+            end
             -- now compute other coefficients:
             local a2, b2, c2 = k*a1, k*b1, c1
 
@@ -187,7 +193,6 @@ local function generate_linear_system(matrix)
 end
 
     -- function that determines the number of solutions of the system
-  -- function that determines the number of solutions of the system
 local function number_solutions_two(eqs)
     -- Coefficients from equations
     local a1, b1, c1 = eqs[1], eqs[2], eqs[3]
@@ -228,6 +233,7 @@ local function number_solutions_two(eqs)
     end
 end       
 
+
 local function generate_exercise(probability_singular)
     local system = generate_system(probability_singular)
     local num_sols = number_solutions_two(system)
@@ -251,16 +257,16 @@ local function pick_method_case(system, num_sols)
     if num_sols == math.huge then method = [[les deux équations sont dépendantes]] --> S = line case, i.e. (a&d==0 and b&e==0 and c&f==0) or (d&a==0 and e&b==0 and f&c==0)
 
     elseif num_sols == 1 then
-        if a==0 or b==1 then method = [[isoler \(y\) dans la première équation, substituer ensuite]]
-        elseif b==0 or a==1 then method = [[isoler \(x\) dans la première équation, substituer ensuite]]
-        elseif d==0 or e==1 then method = [[isoler \(y\) dans la deuxième équation, substituer ensuite]]
-        elseif e==0 or d==1 then method = [[isoler \(x\) dans la deuxième équation, substituer ensuite]]
+        if a==0 or b==1 then method = [[isoler \(y\) dans la 1\textsuperscript{re} équation, substituer ensuite]]
+        elseif b==0 or a==1 then method = [[isoler \(x\) dans la 1\textsuperscript{re} équation, substituer ensuite]]
+        elseif d==0 or e==1 then method = [[isoler \(y\) dans la 2\textsuperscript{e} équation, substituer ensuite]]
+        elseif e==0 or d==1 then method = [[isoler \(x\) dans la 2\textsuperscript{e} équation, substituer ensuite]]
         elseif a==d or b==e then method = [[soustraction directe des deux équations]]
         elseif a==-d or b==-e then method = [[addition directe des deux équations]]
-        elseif a%b==0 then method = string.format([[diviser par \(%d\) puis isoler \(y\) dans la première équation, substituer ensuite]], b)
-        elseif b%a==0 then method = string.format([[diviser par \(%d\) puis isoler \(x\) dans la première équation, substituer ensuite]], a)
-        elseif d%e==0 then method = string.format([[diviser par \(%d\) puis isoler \(y\) dans la deuxième équation, substituer ensuite]], e)
-        elseif e%d==0 then method = string.format([[diviser par \(%d\) puis isoler \(x\) dans la deuxième équation, substituer ensuite]], d)
+        elseif a%b==0 then method = string.format([[diviser par \(%d\) puis isoler \(y\) dans la 1\textsuperscript{re} équation, substituer ensuite]], b)
+        elseif b%a==0 then method = string.format([[diviser par \(%d\) puis isoler \(x\) dans la 1\textsuperscript{re} équation, substituer ensuite]], a)
+        elseif d%e==0 then method = string.format([[diviser par \(%d\) puis isoler \(y\) dans la 2\textsuperscript{e} équation, substituer ensuite]], e)
+        elseif e%d==0 then method = string.format([[diviser par \(%d\) puis isoler \(x\) dans la 2\textsuperscript{e} équation, substituer ensuite]], d)
         else method = [[par combinaison linéaire]]
         end
 
@@ -428,7 +434,7 @@ end
 -- Export user-accessible functions (renamed using syntax `new = old`):
 return { 
     polynomial = generate_exercise, -- returns {coefficients, num_sols, x, y}
-    methodString = pick_method, -- provides recommended method
+    methodString = pick_method_case, -- provides recommended method
     printEquation = cas_equation, -- question preprinted for LaTeX
     answer = answer_line, -- answer preprinted for LaTeX
     fullRoutine = full_routine, -- whole shebang

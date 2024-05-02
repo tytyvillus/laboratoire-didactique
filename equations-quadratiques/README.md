@@ -2,7 +2,7 @@
 
 Pour démarrer rapidement l'utilisation de cet outil sans vous soucier de tous les aboutissants de sa création, vous pouvez consulter le fichier [`QUICKSTART.md`](./QUICKSTART.md) ci-joint. Il contient également des conseils sur la modification facile de l'outil.
 
-Si vous lisez ce document depuis un autre chose que la page GitHub, sachez qu'en suivant le lien [pour le dépôt du projet](https://github.com/tytyvillus/laboratoire-didactique) vous pouvez lire des versions de ce guide avec mise en page élégante et d'abord facile.
+Si vous lisez ce document depuis un autre chose que la page GitHub, sachez qu'en suivant le lien [pour le dépôt du projet](https://github.com/tytyvillus/laboratoire-didactique) vous pouvez lire des versions de ce guide d'un abord facile, avec une mise en page élégante.
 
 # Résoudre efficacement une équation de second degré
 
@@ -22,9 +22,9 @@ Le présent outil est conçu pour permettre à des élèves d'entraîner la rés
 
 (Certains cas spéciaux sont aussi inclus : l'équation de premier degré, ou de type $0 = 1$, ou $0 = 0$ ; ceux-ci apparaissent avec une faible probabilité.)
 
-Pour ce faire, l'outil permet de produire des fiches d'exercices avec des équations du second degré à résoudre le plus efficacement possible par les élèves.  Avec les exercices sont générées des solutions recommandées, choisies parmi les méthodes énumérées ci-dessus.  L'utilisation recommandée de l'outil est après avoir discuter et entraîné les différentes méthodes indépendamment, ayant expliqué l'utilité de chercher une méthode efficace, de distribuer une feuille par élève, chacune générée séparément, et de les laisser travailler à les résoudre.  Une fois une proportion suffisante des exercices résolus, l'enseignant·e peut procéder à une mise en commun lors de laquelle chaque élève — par exemple — expose l'équation dont la méthode de résolution a été perçue comme la moins évidente.
+Pour ce faire, l'outil permet de produire des fiches d'exercices avec des équations du second degré à résoudre le plus efficacement possible par les élèves.  Avec les exercices sont générées des solutions recommandées, choisies parmi les méthodes énumérées ci-dessus.  L'utilisation recommandée de l'outil est après avoir discuter et entraîné les différentes méthodes indépendamment — ayant expliqué l'utilité de chercher une méthode efficace — de distribuer une feuille par élève, chacune générée séparément, et de les laisser travailler à les résoudre.  Une fois une proportion suffisante des exercices résolus, l'enseignant·e peut procéder à une mise en commun lors de laquelle chaque élève — par exemple — expose l'équation dont la méthode de résolution a été perçue comme la moins évidente.
 
-Ce projet entre dans le contexte d'entraîner la compétence de base « utiliser avec souplesse l'outillage mathématique » donné dans l'*Annexe au plan d'études cadre du 9 juin 1994 pour les écoles de maturité : Compétences de base en mathématiques et en langue première constitutives de l'aptitude générale aux études supérieures, du 17 mars 2016*. 
+Ce projet entre dans le contexte d'entraîner la compétence de base « utiliser avec souplesse l'outillage mathématique » donnée dans l'*Annexe au plan d'études cadre du 9 juin 1994 pour les écoles de maturité : Compétences de base en mathématiques et en langue première constitutives de l'aptitude générale aux études supérieures, du 17 mars 2016*. 
 
 ## Structure de l'outil
 
@@ -62,13 +62,13 @@ Le document `main-*.tex` consiste en une série de 24 exercices, mis en page alg
 ```
 et `\showallquestions` et `\showallanswers`.
 
-Quelques commandes additionnelles sont également proposées pour une mise en page alternative directement depuis `main-*.tex` :
+Quelques commandes additionnelles sont également proposées directement dans le `main-*.tex` pour une mise en page alternative :
 
 - `\aprintqna` : imprime l'équation sur une ligne, suivie de la réponse.
 
 - `\amakequestion` : à utiliser en mode mathématique (*mathmode*), génère une équation à résoudre.
 
-- `\amakeanswer` : à utiliser en mode texte, donne la solution recommandée à la dernière équation générée par `\amakequestion`
+- `\amakeanswer` : à utiliser en mode texte, donne la solution recommandée à la dernière équation générée par `\amakequestion`.
 
 Les deux dernières sont plus modulables, pouvant être utilisées pour placer l'équation et la réponse plus librement, par exemple au sein d'une plus grande feuille de travail avec d'autres types de questions.
 
@@ -118,7 +118,7 @@ Pour accéder à ces fonctions, il faut les appeler depuis un document `.tex`. C
 
 La syntaxe de ces fonctions est documentée dans le fichier `mainQuadratique.lua` directement.
 
-### Traitement par lot
+### Traitement par lots
 
 Pour produire plusieurs feuilles différentes d'un coup, afin de pouvoir par exemple les distribuer individuellement à une classe de 20 élèves, nous n'avons malheureusement pas trouvé d'autre solution que d'appeler plusieurs fois le moteur LuaLaTeX depuis un programme externe. Par exemple, sur Linux, vous pouvez taper le code suivant dans Bash depuis le dossier contenant `main-*.tex` :
 

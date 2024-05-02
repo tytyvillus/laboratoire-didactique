@@ -18,7 +18,7 @@ Le présent outil est conçu pour permettre à des élèves d'entraîner la rés
 
 - si les nombres sont petits, factoriser par trinôme ;
 
-- et sinon, utiliser la formule de Viète.
+- et sinon, utiliser la formule de Viète / formule quadratique.
 
 (Certains cas spéciaux sont aussi inclus : l'équation de premier degré, ou de type $0 = 1$, ou $0 = 0$ ; ceux-ci apparaissent avec une faible probabilité.)
 

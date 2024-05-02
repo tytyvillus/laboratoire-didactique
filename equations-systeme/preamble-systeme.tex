@@ -132,3 +132,20 @@ minsecsep=m
 % Pour imprimer question immédiatement suivie de réponse:
 % To print question immediately followed by answer:
 \newcommand{\bprintqna}{\directlua{codeB.printQnA()}}
+
+% Pour librement produire question, et séparément la réponse
+% To freely produce question, and separately answer 
+\newcommand{\bmakequestion}{% 
+	% MUST BE INSERTED IN MATHMODE: \(\amakequestion\)
+		\directlua{%
+			coeffs, num_sols, x, y = codeB.polynomial(0.2)
+			eqn = codeB.printEquation(coeffs)
+			tex.print(eqn)
+		}
+	}
+\newcommand{\bmakeanswer}{%
+	% IN TEXTMODE
+		\directlua{%
+			tex.print(codeB.answer(coeffs, num_sols, x, y))
+		}
+	}

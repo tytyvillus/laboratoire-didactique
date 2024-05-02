@@ -78,7 +78,7 @@ Si vous le souhaitez, vous pouvez modifier quelques réglages dans l'algorithme 
 
 - choisir la graine pour la générations de nombres pseudoaléatoires, en modifiant le paramètre de la fonction `math.randomseed()` — *si vous voulez pouvoir garder vos feuilles d'une fois à une autre, il vous faut fixer ce paramètre **avant** la compilation* ;
 
-- choisir la terminologie pour la formule de Viète (de base `formule = [[formule quad.\@]]`, que vous pouvez remplacer par `formule = [[formule de Viète]]` par exemple) ;
+- choisir la terminologie pour la formule de Viète (de base `formule = [[formule quadr.\@]]`, que vous pouvez remplacer par `formule = [[formule de Viète]]` par exemple) ;
 
 - déterminer la probabilité que les solutions d'un exercice donné soient des nombres entiers, en modifiant la fonction booléenne `whether_from_factored_form()` ;
 

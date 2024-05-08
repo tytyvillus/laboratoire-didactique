@@ -1,8 +1,8 @@
 For English, scroll to [bottom](#the-laboratoire-didactique).
 
-# Outils d'adaptativité (Laboratoire didactique)
+# Outils d'Adaptativité (Laboratoire didactique)
 
-Ceci est un dépôt contenant le projet *Outils d'adaptativité*, travail de Mathias BLAISE et d'Alexandros RISPO CONSTANTINOU pour le Laboratoire didactique dans le cadre de la formation DEEM du CERF à Fribourg.
+Ceci est un dépôt contenant le projet *Outils d'Adaptativité*, travail de Mathias BLAISE et d'Alexandros RISPO CONSTANTINOU pour le Laboratoire didactique dans le cadre de la formation DEEM du CERF à Fribourg.
 
 Il est destiné à être utilisé pour entraîner les élèves du secondaire II romand à *utiliser avec souplesse l’outillage mathématique*, une des compétences basale à développer selon le Plan d'études cadre fribourgeois.
 
@@ -42,7 +42,7 @@ Fonctionne avec n'importe quelle distribution commune de LaTeX **à jour**, par 
 
 # The *Laboratoire didactique*
 
-This repository contains the project *Outils d'adaptativité*.  This work was produced by Mathias BLAISE and Alexandros RISPO CONSTANTINOU for the *Didactics Laboratory* in the context of a secondary-level teaching degree.
+This repository contains the project *Outils d'Adaptativité* (*Tools for Versatility*).  This work was produced by Mathias BLAISE and Alexandros RISPO CONSTANTINOU for the *Didactics Laboratory* in the context of a secondary-level teaching degree.
 
 It is meant to be used by French-speaking teachers to give their students practice in solving both quadratic equations and two-variable systems of linear equations.
 

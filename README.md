@@ -62,7 +62,7 @@ A version combining both tools, though still in the experimental stage, is avail
 
 ### Option (i) — easy use — Overleaf
 
-For an easy, online quick-start, you can compile the files from [Overleaf](https://www.overleaf.com/).  Click on the Overleaf link which you'll find in the respective projects' `README`s (§ [*Quick links*](#quick-links)). You can then copy the project to your personal Overleaf account.
+For an easy, online quick-start, you can compile the files from Overleaf.  Click on the Overleaf link which you'll find in the respective projects' `README`s (§ [*Quick links*](#quick-links)). You can then copy the project to your personal Overleaf account.
 
 ![Large green arrow pointing to the ‘copy’ button in Overleaf.](./images/copier-d-overleaf-oq.png)
 

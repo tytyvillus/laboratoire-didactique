@@ -14,7 +14,7 @@ Selon l'outil qui vous interesse, vous pouvez lire directement la `README` perti
 
 - [Résolution efficace de systèmes d'équations à deux inconnues](./equations-systeme/README.md) 
 
-Une version encore expérimentale, combinant les deux outils, est disponible depuis Overleaf à l'addresse [www.overleaf.com/read/wzdcckddkjzy#f3d012](https://www.overleaf.com/read/wzdcckddkjzy#f3d012). Si vous souhaitez y apporter des modifications pour l'adapter à vos besoins, suivez le guide donné dans les `QUICKSTART` ([quadr.](./equations-quadratiques/QUICKSTART.md), [syst.](./equations-systeme/QUICKSTART.md))
+Une version encore expérimentale, combinant les deux outils, est disponible depuis Overleaf à l'addresse [www.overleaf.com/read/wzdcckddkjzy#f3d012](https://www.overleaf.com/read/wzdcckddkjzy#f3d012). Si vous souhaitez y apporter des modifications pour l'adapter à vos besoins, suivez le guide donné dans les `QUICKSTART` ([quadr.](./equations-quadratiques/QUICKSTART.md), [syst.](./equations-systeme/QUICKSTART.md)).
 
 ## Utilisation
 
@@ -56,7 +56,7 @@ If you are interested in a specific tool, you can jump its respective `README` (
 
 - [Efficient solutions to systems of equations in two unknowns](./equations-systeme/README.md)
 
-A version combining both tools, though still in the experimental stage, is available on Overleaf at the following address: [www.overleaf.com/read/wzdcckddkjzy#f3d012](https://www.overleaf.com/read/wzdcckddkjzy#f3d012). If you want to adapt it to your needs, follow the manual given in the `QUICKSTART` files ([quadr.](./equations-quadratiques/QUICKSTART.md), [syst.](./equations-systeme/QUICKSTART.md))
+A version combining both tools, though still in the experimental stage, is available on Overleaf at the following address: [www.overleaf.com/read/wzdcckddkjzy#f3d012](https://www.overleaf.com/read/wzdcckddkjzy#f3d012). If you want to adapt it to your needs, follow the manual given in the `QUICKSTART` files ([quadr.](./equations-quadratiques/QUICKSTART.md), [syst.](./equations-systeme/QUICKSTART.md)).
 
 ## Use
 

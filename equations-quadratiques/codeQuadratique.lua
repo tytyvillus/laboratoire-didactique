@@ -14,7 +14,30 @@
 --> set manually if you want a reproducible sheet:
 math.randomseed(os.time()) -- e.g. 2 or os.time()
 
+
 -- GENERAL PARAMETERS --> modify at will but at your own peril
+
+-- Choose your preferred terminology for the quadratic formula:
+local formule = [[formule quadr.\@]]
+--> typical choices are [[formule de Viète]] or [[formule quadratique]]
+
+local function whether_from_factored_form () 
+    -- randomly decides whether choose [integer] solutions first (return true)
+    -- or generate a, b, c at random (return false)
+    if math.random(10) <= 7 --> weightings, feel free to change
+        then return true 
+        else return false 
+    end 
+end
+
+local function enforce_perfect_square ()
+    -- randomly chooses to enforce a perfect-square polynomial (return true)
+    -- or just leave things alone (return false)
+    if math.random(10) == 1 --> weightings, feel free to change
+        then return true
+        else return false
+    end
+end
 
 local function easy_factor(a, x1, x2)
     -- boolean test; decides whether a*x^2 + b*x + c is easy to factorise or not
@@ -46,27 +69,11 @@ local function easy_factor(a, x1, x2)
 
 end
 
-local function whether_from_factored_form () 
-    -- randomly decides whether choose [integer] solutions first (return true)
-    -- or generate a, b, c at random (return false)
-    if math.random(10) <= 7 --> weightings, feel free to change
-        then return true 
-        else return false 
-    end 
-end
-
-local function enforce_perfect_square ()
-    -- randomly chooses to enforce a perfect-square polynomial (return true)
-    -- or just leave things alone (return false)
-    if math.random(10) == 1 --> weightings, feel free to change
-        then return true
-        else return false
-    end
-end
 
 
-
--- HELPER FUNCTIONS --
+---------------------------------------
+---------  HELPER FUNCTIONS  ----------
+---------------------------------------
 
 local function is_one_of (value, table)
     -- checks whether value is one of the elements of table
@@ -245,14 +252,14 @@ local function pick_method(polynomial_info, override_method)
                 if a ~= 1 -- then, if a =/= 1, remind of necessity of bringing $a$ out the front
                 and not (override_method and not override_method[1]) -- check whether already being told about premultiplying
                 then method = string.format([[diviser par \(%d\), puis ]], a)..method end
-        else method = [[formule de Viète]]
+        else method = formule -- [[formule de Viète]]
         end
 
     -- give instead methods when problem has no solution:
     else method = [[sans solutions]] -- initalise as no solutions, just in case
         if a==0 and b==0 and c~=0 then method = [[évidemment]]
         elseif b==0 then method = [[somme de nombres du même signe ne fait jamais zéro]]
-        else method = [[formule de Viète / en calculant le discriminant \((\Delta)\)]]
+        else method = formule..[[ / en calculant le discriminant \((\Delta)\)]]
         end 
     end
 

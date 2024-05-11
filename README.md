@@ -24,6 +24,8 @@ Pour une utilisation facile des ressources, vous pouvez y accéder depuis Overle
 
 ![Bouton « copie » dans Overleaf, mis en évidence avec une grande flèche verte.](./images/copier-d-overleaf-oq.png)
 
+Il existe également une version intégrant les deux outils, disponible [sur Overleaf](https://www.overleaf.com/read/wzdcckddkjzy#f3d012). *N. b.* — Cette version est encore en phase de test.
+
 ### Option (ii) — pour les aguerri·e·s — compilation locale
 
 Télécharger un des `.zip`, le décompresser et compiler le fichier `main-*.tex` avec LuaLaTeX.
@@ -66,6 +68,8 @@ For an easy, online quick-start, you can compile the files from Overleaf.  Click
 
 ![Large green arrow pointing to the ‘copy’ button in Overleaf.](./images/copier-d-overleaf-oq.png)
 
+There is also a *currently experimental* version combining both types of equation, available at the following [Overleaf link](https://www.overleaf.com/read/wzdcckddkjzy#f3d012).
+
 ### Option (ii) — for LaTeX geeks — local compilation
 
 Download, unzip and compile the `main-*.tex` file using LuaLaTeX.
@@ -86,3 +90,8 @@ If you do end up hosting this elsewhere, do let us know! We'll be happy to see o
 # Licence
 
 [GPL-3.0-or-later](https://www.gnu.org/licenses/gpl-3.0.html)
+
+# Auteurs / authors
+
+- Alex Rispo Constantinou
+- Mathias Blaise

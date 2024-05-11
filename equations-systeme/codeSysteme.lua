@@ -112,7 +112,7 @@ end
 -- warning: have a lot of checks of type a==0
 
 -- Generate two factors linear polynomials:
- -- generate 2x2 matrices to have 0, 1 or infinitely many solutions depending on the random number given 
+ -- generate 2x2 matrices to have 0, 1 or infinitely many solutions depending on the random number given (if the matrix is singular, then it will be wiped away 80% of the time)
 local function generate_system(probability_singular)
     
     local rat = whether_singular()
@@ -128,9 +128,6 @@ local function generate_system(probability_singular)
 
             -- also generate proportionality coefficient:
             local k = math.random(-7, 7)
-            while k == 0 do
-                k= math.random(-7,7)
-            end
             -- now compute other coefficients:
             local a2, b2, c2 = k*a1, k*b1, k*c1
             system = {a1, b1, c1, a2, b2, c2}
@@ -145,9 +142,6 @@ local function generate_system(probability_singular)
 
             -- also generate proportionality coefficient:
             local k = math.random(-7, 7)
-            while k == 0 do
-                k= math.random(-7,7)
-            end
             -- now compute other coefficients:
             local a2, b2, c2 = k*a1, k*b1, c1
 
@@ -193,6 +187,7 @@ local function generate_linear_system(matrix)
 end
 
     -- function that determines the number of solutions of the system
+  -- function that determines the number of solutions of the system
 local function number_solutions_two(eqs)
     -- Coefficients from equations
     local a1, b1, c1 = eqs[1], eqs[2], eqs[3]
@@ -233,7 +228,6 @@ local function number_solutions_two(eqs)
     end
 end       
 
-
 local function generate_exercise(probability_singular)
     local system = generate_system(probability_singular)
     local num_sols = number_solutions_two(system)
@@ -271,12 +265,7 @@ local function pick_method_case(system, num_sols)
         end
 
     -- give instead methods when problem has no solution:
-    else method = [[sans solutions]] -- initalise as no solutions, just in case
-        if a==0 and b==0 and c~=0 then method = [[évidemment]]
-        elseif d==0 and e==0 and f~=0 then method = [[évidemment]]
-        elseif a==0 and d==0 and c~=f then method = [[surdéfini]]
-        elseif b==0 and e==0 and c~=f then method = [[surdéfini]]
-        end 
+    else method = [[sans solutions (combinaison linéaire donne $1=0$)]]   
     end
     return method
 end

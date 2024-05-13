@@ -6,7 +6,7 @@ Ceci est un dépôt contenant le projet *Outils d'Adaptativité*, travail de Mat
 
 Il est destiné à être utilisé pour entraîner les élèves du secondaire II romand à *utiliser avec souplesse l’outillage mathématique*, une des compétences basale à développer selon le Plan d'études cadre fribourgeois.
 
-Le rapport écrit en lien avec ce travail, le situant dans le plus ample contexte historique des compétences basales de le canton de Fribourg, peut être consulté sous [rapport-écrit](./rapport-écrit/).
+Le rapport écrit en lien avec ce travail, le situant dans le plus ample contexte historique des compétences basales de le canton de Fribourg, peut être consulté sous [`rapport-écrit`](./rapport-écrit/).
 
 ## Liens rapides
 
